@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js" ></script>
+
+</head>
+<script>
+	$(function(){
+		$('dl dt').mouseover(function(){
+			$('ul').slideDown();
+		})
+		$('dl dt').mouseout(function(){
+			$('ul li').slideUp();
+		})
+	})
+</script>
+<body>
+<dl>
+	<dt>首页</dt>
+	<dt>次页</dt>
+</dl>
+<ul style="display: none;">
+	<li>1111</li>
+	<li>1111</li>
+	<li>1111</li>
+</ul>
+</body>
+</html>

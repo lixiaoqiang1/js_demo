@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>{{a}}</p>
+			<p><button type="button" class="btn btn-default" @click="add(2,$event)">add</button> </p>
+			<p><btn></btn></p>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var btn = {
+			template : `<button class="btn btn-danger">btn</button>`
+		}
+		var app = new Vue({
+			el:'#app',
+			data:{
+				a:1,
+			},
+			methods:{
+				add:function(num){
+					console.log(num)
+					if(num != ''){
+						this.a += num;
+					}else{
+						this.a++
+					}	
+				}
+			},
+			//放入模板
+			components:{
+				"btn":btn
+			}
+		})
+	</script>
+</html>

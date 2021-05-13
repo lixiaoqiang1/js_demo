@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript" src="../VueJS/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			function checkLength(which) {
+				var maxChars = 45;
+				if(which.value.length > maxChars)
+					which.value = which.value.substring(0, maxChars);
+				var curr = maxChars - which.value.length;
+				document.getElementById("chLeft").innerHTML = curr.toString();
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<p> 剩余字数：<span id="chLeft">45</span></p>
+		<textarea style="width:300px;height:200px;" onkeyup="checkLength(this);">评论框内容</textarea>
+
+	</body>
+
+</html>

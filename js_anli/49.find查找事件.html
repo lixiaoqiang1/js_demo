@@ -1,0 +1,29 @@
+<html>
+<meta charset="UTF-8">
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+
+<body>
+
+<div class="box">
+	<div class="aaa">
+		<div class="bbb">
+			<p>111</p>
+		</div>
+	</div>
+	<div class="aaa">
+		<div class="ccc">
+			<p>222</p>
+		</div>
+	</div>
+
+</div>
+</body>
+<script>
+	$('.bbb p').click(function(){
+		$(this).parents('.box').find('.ccc').css({'background':'red'})
+	})
+</script>
+</html>

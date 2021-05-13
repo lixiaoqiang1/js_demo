@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+		<button type="button" class="btn btn-danger" id="btnok">点击</button>
+	</body>
+	<script>
+		$(function(){
+			//绑定click事件
+			$('#btnok').bind('click',function(){
+				//发送Ajax请求
+				$.ajax({
+					type:"get",
+					url:"php/demo01.php",
+					cache:false,//解决页面缓存问题
+					async:true,
+					success:function(msg){
+						alert(msg);
+						console.log(msg);
+					}
+				});	
+			});
+		});
+	</script>
+</html>

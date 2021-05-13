@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>htmltopic</title>
+		<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+		<style>
+			* {
+				margin: 0;
+			}
+			html {
+				background: #fff;
+			}
+			.test {
+				width: 300px;
+				height: 200px;
+				background: #EEEEEE;
+				padding: 20px;
+			}
+			canvas {
+				margin-right: 5px;
+			}
+			.down {
+				float: left;
+				margin: 40px 10px;
+			}
+			.down2 {
+				float: left;
+				margin: 40px 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="test">
+			<label>姓名：</label>
+			<input type="text" placeholder="输入姓名" />
+		</div>
+
+		<div>
+			<a class="down" href="" download="downImg">生成图片</a>
+		</div>
+		<script language="javascript">
+			//这是另一种写法
+			$(function() {
+				$(".down2").click(function() {
+					html2canvas($(".test")).then(function(canvas) {
+						var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url
+						window.location.href = imgUri; // 下载图片
+					});
+					html2canvas($('.tongxingzheng_bg'), {
+						onrendered: function(canvas) {
+							var data = canvas.toDataURL("image/png"); //生成的格式
+							//data就是生成的base64码啦
+							alert(data);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

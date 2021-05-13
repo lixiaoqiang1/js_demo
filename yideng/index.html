@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="html5、css3、jquery">
+		<meta name="description" content="">
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+	</head>
+	<body>
+		<script>
+			var arr = [
+				[1, 4, 7, 11, 15],
+				[2, 5, 8, 12, 19],
+				[3, 6, 9, 16, 22],
+				[10, 13, 14, 17, 24],
+				[18, 21, 23, 26, 30]
+			]
+
+			function fun(arr, tar) {
+				if (!arr.length) return false;
+				let x = arr.length - 1,
+					y = 0;
+				while (x >= 0 && y < arr[0].length) {
+					if (arr[x][y] === tar) {
+						return true;
+					} else if (arr[x][y] > tar) {
+						x--;
+					} else {
+						y++;
+					}
+				}
+				return false;
+
+			}
+			console.log(fun(arr, 300))
+		</script>
+	</body>
+</html>

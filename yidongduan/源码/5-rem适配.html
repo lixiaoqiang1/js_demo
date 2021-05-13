@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.em{
+				font-size: 30px;
+				font-size: 10px;
+				width: 10em;
+				height: 10em;
+				border: 1px solid #f00;
+			}
+			html{
+				font-size: 20px;
+			}
+			.rem{
+				width: 10rem;
+				height: 20rem;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			px		绝对单位，给多少就是多少，
+					问题：不管屏幕尺寸怎么变化，它都不会变。做不到适配
+			
+			em		相对单位，相对于自身字体大小的值				
+					font-size:12px		1em=12px
+					问题：
+						1、chrom下有最小字体限制，必需为12px，所以这个值不能小于12
+						2、如果两个一样的元素，但是里面字体不一样，那就不能统一设置了。或者元素字体变化了，就又要统一设置一遍
+					
+			rem		CSS3新增的一个相对单位，相对于根节点(html)字体大小的值
+					r	root
+					html{font-size:10px}		2rem=20px
+					通过它就可以做到只修改根元素的大小，就能成比例地调整所有的字体大小，只依赖html字体的大小
+		-->
+		<div class="em">em-陈学辉</div>
+		<div class="rem">rem-kaivon</div>
+	</body>
+</html>

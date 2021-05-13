@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+		<style>
+			input {
+				width: 200px;
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/pic11.jpg">
+			<div id="rest"></div>
+	</body>
+	<script>
+		//鼠标悬停显示文字，离开时候文字消失
+		$("img").hover(function(){
+			$("#rest").html("进来");
+		},function(){
+			$("#rest").html("离开")
+		});
+	</script>
+
+
+</html>

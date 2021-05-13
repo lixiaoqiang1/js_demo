@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+		<style>
+			input {
+				width: 200px;
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="djwd" method="post">
+			<input id="txt1" type="text" />
+			<button id="btn1" type="button">btn</button>
+		</form>
+	</body>
+	<script>
+		$("#btn1").bind("click",function(){
+			if($("#txt1").val() == ""){
+				alert("用户不能为空");
+			}else{
+				alert("input有内容");
+			}
+		});
+	</script>
+
+</html>

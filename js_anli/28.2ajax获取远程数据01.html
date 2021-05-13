@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+	</head>
+
+	<body id="box">
+		<input type="button" id="btnok" value="获取远程数据" />
+		<span id="inner" val = '1'></span>
+	</body>
+	<script>
+		$(function(){
+			$('#btnok').click(function(){
+				$.ajax({
+					type:"get",
+					url:"cont.php",
+					async:false,
+					success:function(aa){
+						console.log(aa);
+						alert(aa);
+					}
+					
+				});
+			});
+		});
+	</script>
+
+</html>

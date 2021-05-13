@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			#s1{
+				background: #fff;
+				display: flex;
+			}
+			#s1 div{
+				width: 200px;
+				height: 200px;
+			}
+			#s1 div:nth-child(1){
+				background: #F8AF8D;
+				
+				flex-grow: 1;
+			}
+			#s1 div:nth-child(2){
+				background: #02CB7F;
+				
+				flex-grow: 2;
+			}
+			
+			
+			#s2{
+				display: flex;
+				background: #fff;
+				margin-top: 100px;
+			}
+			#s2 div{
+				height: 200px;
+			}
+			#s2 div:nth-child(1){
+				flex-grow: 2;
+				background: #0000FF;
+			}
+			#s2 div:nth-child(2){
+				flex-grow: 4;
+				background: #087FAB;
+			}
+			#s2 div:nth-child(3){
+				flex-grow: 1;
+				background: #AE3E56;
+			}
+			#s2 div:nth-child(4){
+				flex-grow: 1;
+				background: #CC3333;
+			}
+			#s2 div:nth-child(5){
+				flex-grow: 1;
+				background: #0084CF;
+			}
+			
+			#s3{
+				display: flex;
+				background: #fff;
+				margin-top: 100px;
+			}
+			#s3 div{
+				height: 200px;
+			}
+			#s3 div:nth-child(1){
+				background: #AC5CF5;
+				flex-grow: 1;
+			}
+			#s3 div:nth-child(2){
+				background: #FFFF00;
+				font-size: 100px;
+				flex-grow: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			flex-grow			当父级的宽度大于所有子元素宽度之和时，根据父级的剩余空间，设置子元素的扩展比例（设置后，元素给的固定宽度会被覆盖）它是一个系数
+								默认为0，即如果存在剩余空间，也不扩展
+				剩余空间
+					剩余空间=父级的宽度-所有子元素的宽度和	
+					
+				子元素宽度计算公式
+					子元素的宽度=（父级的宽度-所有子元素的宽度和）/所有子元素的flex-grow属性值之和*子元素的flex-grow属性值+子元素初始宽度
+		-->
+		<section id="s1">
+			<div></div>		<!--(1904-200-200)/3*1+200=701.33-->
+			<div></div>		<!--(1904-200-200)/3*2+200=1202.67-->
+		</section>
+		
+		<section id="s2">
+			<div></div>		<!--(1887-0)/9*2+0=419.33-->
+			<div></div>		<!--(1887-0)/9*4+0=838.67-->
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+		
+		<section id="s3">
+			<div><span>陈学辉</span></div>		
+			<!--(1887-48-1500)/3*1+48=161-->
+			<div><span>我是一只小蜜蜂，飞到西飞到东！</span></div>		
+			<!--(1887-48-1500)/3*2+1500=1726-->
+		</section>
+	</body>
+</html>

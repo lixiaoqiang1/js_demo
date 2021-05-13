@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>删除元素</title>
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+		
+	</head>
+	<style>
+		.first{width: 300px;height: 300px;border:1px #ccc solid;border-radius: 4px;}
+	</style>
+
+	<body>
+		<div class="form-group form-inline clearfix">
+			<label>强制升级机型：</label>
+			<select class="form-control input-sm" id="forced">
+				<option>111111111111</option>
+				<option>222222222222</option>
+				<option>444444444444444444</option>
+				<option>555555555555555555</option>
+			</select>
+		</div>
+		<div class="form-group form-inline clearfix">
+			<label></label>
+			<ul class="form-control first" id="select_box"></ul>
+			<input type="hidden" value="" id="cont_text">
+
+		</div>
+	</body>
+	<script>
+		//版本升级添加
+		$(function() {
+			//选择机型开始
+			$('#forced').change(function() {
+				var a = $(this).val()
+				var b = $("#" + a + "").val()
+				var c = $('#cont_text').val();
+				if(b == null){
+				
+						$('#select_box').append(
+							'<li class="text_ban" id='+'"' + a + '">' +
+							'<span>' + a + '</span>' + '<i class="btn_cl01">' + '×' + '</i>' +
+							'</li>'
+						);
+						$('#cont_text').val(c + a + ',');
+				}
+			});
+
+			//删除版本升级
+			$("#select_box").delegate(".text_ban", "click", function() {
+				var c = $('#cont_text').val();
+				var a = $(this).children().html();
+				$(this).remove();
+				var str = $('#cont_text').val();
+				var replacestr = a+',';
+				var newstr = str.replace(replacestr,'');
+				$('#cont_text').val(newstr)
+			});
+
+		})
+	</script>
+
+</html>

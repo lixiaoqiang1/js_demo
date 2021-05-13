@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<div style="margin: 30px;">
+				<h1><br />今天被傻X打扰次数 == {{fenshu}} 次</h1>
+				<button v-on:click="jia" class="btn btn-danger">加</button>
+				<button @click="jian" class="btn btn-success">减</button><br />
+				<input type="text" v-on:keyup.enter = "onEnter" v-model="fenshu2" />
+				
+			</div>
+			<div v-html="dodo"></div>
+			<div v-text="haha"></div>
+			
+		</div>
+		
+		
+	</body>
+	
+	<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js" ></script>
+	<script>
+		var day2 = new Date();
+  		day2.setTime(day2.getTime());
+  		var s2 = day2.getFullYear()+"-" + (day2.getMonth()+1) + "-" + day2.getDate();
+		var app = new Vue({
+			el:'#app',
+			data:{
+				fenshu:0,
+				fenshu2:2,
+				dodo:'<h2>被傻X打扰次数</h2>',
+				haha:'周期日',
+			},
+			methods:{
+				jia:function(){
+					this.fenshu++;
+				},
+				jian:function(){
+					this.fenshu--;
+				},
+				onEnter:function(){
+					this.fenshu = this.fenshu + parseInt(this.fenshu2);
+				}
+			}
+		})
+	</script>
+</html>

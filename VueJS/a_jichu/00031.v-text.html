@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap-theme.min.css" />
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="item in items">
+					{{item.name}}
+				</li>
+			</ul>
+			<div class="aa" v-html="nihao"></div>
+			<div class="bb" v-text="zhouri"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				items:[
+					{name:'张三',age:'11'},
+					{name:'张si',age:'22'},
+					{name:'张五',age:'33'},
+				],
+				nihao:'<h3>你好</h3>',
+				zhouri:'周日'
+			},
+//			computed:{
+//				soritem:function(){
+//					return this.items.sort();
+//				}
+//			}
+		})
+	</script>
+</html>

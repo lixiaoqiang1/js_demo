@@ -1,0 +1,26 @@
+<html>
+<meta charset="UTF-8">
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+
+<body>
+<input type="text" id="box" value="请输入姓名" />
+</body>
+<script>
+	$("#box").click( function () {
+		var aa = $('#box').val();
+		if (aa == '请输入姓名') {
+			$('#box').val('');
+		}
+	});
+	//鼠标焦点事件
+	$("#box").blur( function () {
+		var aa = $('#box').val();
+		if (aa == '') {
+			$('#box').val('请输入姓名');
+		}
+	} );
+</script>
+</html>

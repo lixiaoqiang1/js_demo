@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../common/js/jquery-1.9.1.min.js" ></script>
+		<script type="text/javascript" src="../common/BootStrap3.0.3/js/bootstrap.min.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+	console.log('ES5:');
+	var a = [];
+	for (var i = 0;i<10;i++) {
+		var c = i;
+		a[i] = function(){
+			console.log(c);
+		}
+	}
+	a[5]();
+	
+	console.log('ES6:');
+	var a = [];
+	for (var i = 0;i<10;i++) {
+		let c = i;
+		a[i] = function(){
+			console.log(c);
+		}
+	}
+	a[5]();
+	</script>
+</html>

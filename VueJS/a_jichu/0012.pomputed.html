@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>{{newPrice}}</p>
+			<ul>
+				<li v-for="item in reversNews">{{item.title}}---{{item.date}}</li>
+			</ul>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var json1 = [
+			{title:'周一',date:'3.11'},
+			{title:'周二',date:'3.22'},
+			{title:'周三',date:'3.33'},
+			{title:'周四',date:'3.44'},
+		]
+		var app = new Vue({
+			el:'#app',
+			data:{
+				price:100,
+				newsList:json1
+			},
+			computed:{
+				newPrice:function(){
+					return this.price = '￥' + this.price + '元'
+				},
+				reversNews:function(){
+//					return this.newsList//渲染newsList
+					return this.newsList.reverse();
+				},
+				
+				
+			}
+		})
+	</script>
+</html>

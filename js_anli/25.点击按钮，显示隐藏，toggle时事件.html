@@ -1,0 +1,25 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		
+		<script>
+			$(function(){
+				$('h2').toggle(function(){
+					$('#box').show();
+				},function(){
+					$('#box').hide();
+				})
+			});
+		</script>
+	</head>
+
+	<body class="container">
+
+		<h2 class="btn btn-danger">btn1</h2><br />
+		<div id="box">文本在这里文本在这里文本在这里文本在这里文本在这里文本在这里</div>
+
+	</body>
+
+</html>

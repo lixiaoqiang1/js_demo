@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+		<title></title>
+	</head>
+
+	<body></body>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+	<script type="text/javascript">
+		$(function(){
+			document.write(returnCitySN["cip"]+','+returnCitySN["cname"]);
+			var ip =  returnCitySN["cip"];//获取ip地址
+			var shi = returnCitySN["cname"].split("省")[1].split("市")[0];//获取所在市
+			var ip3 = ip[0] + ip[1] + ip[2];//获取ip地址前3位
+			var mobilephone = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
+			if(ip3 != '112' && ip3 != '61.' && shi == '广州'){//当ip前4位不是112.或前3位不是61. 且所在市是广州
+				if (!(navigator.userAgent.match(mobilephone))) {
+					console.log('不是移动端入口');
+					window.location.href="URL1";//跳转
+				}else{
+					console.log('移动端入口');
+				}
+			}else{
+				console.log('不满足第一个条件');
+			}
+		})
+	</script>
+
+</html>

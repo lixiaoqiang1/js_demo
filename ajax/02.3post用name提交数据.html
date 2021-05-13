@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+		<a href="01.0post格式.html" target="_search">001</a>
+		<form id="form1">
+			<input type="text" name="name" id="name" placeholder="姓名..." />
+			<input type="text" name="plase" id="plase" placeholder="地址..." />
+			<button type="button" class="btn btn-danger btn-sm" id="btn">提交</button>
+		</form>
+	</body>
+	<script>
+		$('#btn').click(function(){
+			$.ajax({
+				type:"post",
+				url:"",
+				async:true,
+				data:$('#form1').serialize(),
+				success:function (res) {
+					alert(res.msg);
+					if (res.code=='0') {
+						window.location.reload();
+					}
+				}
+			});
+		})
+	</script>
+</html>

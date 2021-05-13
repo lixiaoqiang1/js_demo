@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="html5、css3、jquery">
+<meta name="description" content="">
+
+</head>
+<body>
+<script>
+function fun1(n){
+	let count = 0;
+	while (n !== 0) {
+		count++
+		n = n & (n-1);
+	}
+	return count;
+}
+console.log(fun1(12120))
+
+function fun2(n){
+	let dec = n.toString(2);
+	 let num = 0
+	 for(let i=0;i<dec.length;i++){
+		 if(dec[i]==1){
+			 num++
+		 }
+		 return num
+	 }
+}
+console.log(fun2(01361991))
+</script>
+</body>
+</html>

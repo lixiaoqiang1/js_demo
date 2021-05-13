@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		var result = [];
+		var item = [{
+				"resource_id": '',
+				"text": '',
+				"content_desc": '',
+				"smallImg": '',
+				"existFlag": true
+			},
+			{
+				"resource_id": '',
+				"text": '454',
+				"content_desc": '45',
+				"smallImg": '132',
+				"existFlag": true
+			},
+			{
+				"resource_id": '7886',
+				"text": '454',
+				"content_desc": '45',
+				"smallImg": '132',
+				"existFlag": true
+			},
+			{
+				"resource_id": 'aaa',
+				"text": 'bbb',
+				"content_desc": 'ccc',
+				"smallImg": 'ddd',
+				"existFlag": true
+			}, {
+				"resource_id": '',
+				"text": '',
+				"content_desc": '',
+				"smallImg": '',
+				"existFlag": true
+			}
+		];
+		for(var i = 0; i < item.length; i++) {
+			var obj = item[i];
+			if(!!obj["resource_id"] || !!obj["smallImg"]) {
+				result.push(obj);
+			}
+		}
+		console.log(result);
+	</script>
+
+</html>

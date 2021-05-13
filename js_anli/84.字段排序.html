@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="utf-8"/>
+	<title></title>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+<script>
+	var arr=[
+		{far:123.45,address:"金粮路"},
+		{far:3685.45,address:"北京路"},
+		{far:2.8,address:"人民公园"},
+	];
+	 
+	//根據距離遠近排序，越近在前面，升序
+	arr.sort(function (a, b) {
+		// console.log(a)
+		if (a.far > b.far) {
+			return -1;
+		} else if (a.far == b.far) {
+			return 0;
+		} else {
+			return 1;
+		}
+	});
+	console.log(arr)
+</script>
+</body>

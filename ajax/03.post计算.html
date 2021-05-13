@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+	<input type="button" class="btn btn-danger" id="btnok" value="计算" />
+	</body>
+	<script>
+		$(function(){
+			//绑定click事件
+			$('#btnok').bind('click',function(){
+//				var first = $('#first').val();
+//				var second = $('#second').val();
+				//发送Ajax请求
+				$.ajax({
+					type:"post",
+					url:"php/demo05.php",
+					data:'first=100&second=20',
+					dataType:'json',
+					success:function(msg){
+						alert(msg.jia+'-'+msg.jian+'-'+msg.cheng+'-'+msg.chu);
+						console.log(msg);
+					}
+				});	
+			});
+		});
+	</script>
+</html>

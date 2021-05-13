@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="7.css"/>
+		<style>
+			div:nth-child(2){
+				width: 11.08rem;
+				height: 9.44rem;
+				background: #0078D7;
+			}
+		</style>
+		<title></title>
+		<script>
+			(function(){
+				var html=document.documentElement;
+				var width=html.getBoundingClientRect().width;
+				
+				html.style.fontSize=width/15+'px';
+			})();
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+	</body>
+</html>

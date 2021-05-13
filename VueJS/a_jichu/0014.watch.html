@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>今日温度：{{wendu}}</p>
+			<p>穿衣建议：{{chuanyi}}</p>
+			<p>{{chuanyi1}}</p>
+			<p><button type="button" @click="shenggao" class="btn btn-danger">升高温度</button></p>
+			<p><button type="button" v-on:click="jiangdi" class="btn btn-danger">降低温度</button></p>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var chuanyiarray = ['T恤短袖','夹克长袖','羽绒服棉袄'];
+		
+		var app = new Vue({
+			el:'#app',
+			data:{
+				wendu:18,
+				chuanyi:'夹克长裙',
+				
+				
+			},
+			methods:{
+				shenggao:function(){
+					this.wendu+=5;
+				},
+				jiangdi:function(){
+					this.wendu-=5;
+				}
+			},
+			//watch监听事件变化
+//			watch:{
+//				wendu:function(newVal,oldVal){
+//					if (newVal >= 26) {
+////						this.chuanyi="T桖短袖";
+//						this.chuanyi=chuanyiarray[0]
+//					}
+//					else if(newVal < 26 && newVal > 0){
+//						this.chuanyi=chuanyiarray[1]
+//					}
+//					else{
+//						this.chuanyi=chuanyiarray[2]
+//					}
+//				}
+//			}
+//			
+		})
+		
+		//监听
+		app.$watch('wendu',function(newVal,oldVal){
+			if (newVal >= 26) {
+//					this.chuanyi="T桖短袖";
+					this.chuanyi=chuanyiarray[0]
+				}
+				else if(newVal < 26 && newVal > 0){
+					this.chuanyi=chuanyiarray[1]
+				}
+				else{
+					this.chuanyi=chuanyiarray[2]
+				}
+		})
+	</script>
+</html>

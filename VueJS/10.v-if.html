@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		
+	</head>
+
+	<body class="panel-body">
+		<div id="app">
+			<p v-if="no">no内部内容</p>
+			<template v-if="ok">
+				<h1>ok菜鸟</h1>
+				<p>这是第二排</p>
+				<p>今天星期五</p>
+			</template>
+			
+			<p>{{content}}</p>
+			<button type="button" class="btn btn-danger" @click="add1">add1</button>
+			<button type="button" class="btn btn-danger" @click="add2">add2</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data: {
+				no: true,
+				ok: true,
+				content:0
+			},
+			computed:{
+				add1:function(){
+					this.content++
+				},
+				add2:function(){
+					this.content--
+				}
+			},
+			watch:{
+				content:function(){
+					console.log(this.content)
+				}
+			}
+		})
+	</script>
+
+</html>

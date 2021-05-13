@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+		<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js"></script>
+	</head>
+	<style>
+	    .active {
+	        color: #f00
+	    }
+	    ul li {
+	    	list-style: none;cursor: pointer;
+	        float: left;
+	        padding: 10px
+	    }
+	</style>
+	<body>
+		<div id="app">
+		   <ul>
+		        <!--istrue==index 点击的时候，获取到当前点击的索引，相等为真，反之为假-->
+		        <li v-for='(item,index) in items' :class="{active:istrue==index}" @click="istrue=index">
+		            {{ item.name }}
+		        </li>
+		   </ul>
+		   
+		   <li v-for="(item, index) in time"
+     key="'time' + index"
+     @click="selectTimer(index)"
+     :class="timeIndex === index ? 'default default-active' : 'default' ">
+     {{item.title}}
+</li>
+		</div>
+	</body>
+	<script>
+	    var example1 = new Vue({
+	        el: '#app',
+	        data: {
+	            //istrue 默认是0，正好是索引为0的元素
+	            istrue: 0,
+	            items: [
+	                {name:'首页'},
+	                {name:'列表'},
+	                {name:'详情'}
+	            ],
+	            time: [
+				  {timer: '17'},
+				  {timer: '18'},
+				  {timer: '19'}
+				],
+	        },
+	        methods:{
+	        	selectTimer(index) {
+				  this.timeIndex = index;
+				}
+	        }
+        })	
+	</script>
+</html>

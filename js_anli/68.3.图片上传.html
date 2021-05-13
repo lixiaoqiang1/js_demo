@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<style>
+	
+</style>
+<body>
+	<form enctype="multipart/form-data" name="form1">
+	    <input id="f" type="file" name="f" onchange="change()" />
+	    <div class="upload">上传图片</div>
+	    <p>预览:</p>
+	    <p>
+	        <img id="preview" alt="" name="pic" />
+	    </p>
+	</form>
+</body>
+<script>
+$(".file").on("change","input[type='file']",function(){
+    var filePath=$(this).val();
+    if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1){
+        $(".fileerrorTip1").html("").hide();
+        var arr=filePath.split('\\');
+        var fileName=arr[arr.length-1];
+        $(".showFileName1").html(fileName);
+    }else{
+        $(".showFileName1").html("");
+        $(".fileerrorTip1").html("您未上传文件，或者您上传文件类型有误！").show();
+        return false
+    }
+})
+</script>
+</html>

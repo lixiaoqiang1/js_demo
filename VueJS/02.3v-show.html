@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1 v-show="li">我是李先生</h1>
+			<div v-html="down"></div>
+		</div>
+	</body>
+
+	<script>
+		new Vue({
+			el:'#app',
+			data:{'li':true,down:'<h4>11111</h4>'}
+		})
+	</script>
+</html>

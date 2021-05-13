@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no"/>
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			viewport	视口（可视区窗口），通过meta标签设置
+				未设置
+					1、屏幕的宽度一般为980，但不同的型号也会不同
+					2、真机与模拟器的值也会不同
+					3、用window.innerWidth/window.innerHeight方法获取
+					
+				设置了
+					content					视口里的相关设置				
+						width					屏幕的宽度
+							device-width			设备的实际宽度，不设置的时候默认为这个值
+							数值（不加单位）			不建议设置数字（安卓设备有些不支持，一线互联网公司都不这么干）
+					
+						height					屏幕的高度
+							device-height			设备的实际高度
+							数值	（不加单位）			一般不用设置高度
+							
+						user-scalable			能否缩放
+							yes						允许缩放
+							no						不允许缩放
+						
+						initial-scale			初始比例（要与最小缩放比例保持一致）
+												加上这个后它并不是把每个元素都缩放了，而是改变了设备独立像素
+						minimum-scale			最小能够缩放的比例
+						maximum-scale			最大能够缩放的比例
+注意：
+						1、如果用缩放的话，就把width与user-scalable去掉
+						
+						2、用了缩放后，并不是真正的缩放了，而是改变了屏幕的尺寸（设备的独立像素）
+		-->
+		<div></div>
+	</body>
+</html>

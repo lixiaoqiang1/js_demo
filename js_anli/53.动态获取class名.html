@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery模拟窗口抖动</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<input type="checkbox" onclick="btn($(this),1)"/>
+		<input type="checkbox" onclick="btn($(this),2)" />
+		<input type="checkbox" onclick="btn($(this),3)" />
+		
+		<p class="web1">11111</p>
+		<p class="web2">22222</p>
+		<p class="web3">33333</p>
+		
+	</body>
+<script>
+	$("input[type=checkbox]").attr("checked",true);  
+	function btn(obj,num){
+		console.log(num)
+		if(obj.is(":checked")){
+			$('.web'+num).show();
+		}else{
+			$('.web'+num).hide();
+		}
+		
+	}
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js" ></script>
+		<body>
+			<div class="pull-right tel_r btn-purple icon_xsj" style="background: #DDDDDD;height: 100px;" onclick="btn1($(this))">
+				<p>已延期</p>
+				<dl class="plan_out" style="display: block;width: 100px;height: 60px;background: yellow;">
+					<a>11111</a>
+					<a onclick="btn2()">22222</a>
+					<a>11111</a>
+				</dl>
+			</div>
+			<div class="pull-right tel_r btn-purple icon_xsj" style="background: #DDDDDD;height: 100px;" onclick="btn1($(this))">
+				<p>已延期</p>
+				<dl class="plan_out" style="display: block;">
+					<a>11111</a>
+				</dl>
+			</div>
+		</body>
+<script>
+//	function btnShow() {
+//			event.stopPropagation();
+//			//按钮的toggle,如果div是可见的,点击按钮切换为隐藏的;如果是隐藏的,切换为可见的。 
+//			$('#divTop').toggle(0);
+//			return false;
+//		}
+//
+//		//点击空白处隐藏弹出层，下面为滑动消失效果和淡出消失效果。
+//		$(document).click(function(event) {
+//			var _con = $('#divTop'); // 设置目标区域
+//			if(!_con.is(event.target) && _con.has(event.target).length === 0) { // Mark 1
+//				//$('#divTop').slideUp('slow');  //滑动消失
+//				$('#divTop').hide(0); //淡出消失
+//			}
+//		});
+//	$(function(){
+//		$('.icon_xsj').click(function(){
+//			 $(this).children('.plan_out').fadeToggle(0)
+//		})
+//		$('.plan_out').mouseover(function(){
+//			$(this).children('.plan_out').hide()
+//		})
+//		$('.icon_xsj').mouseout(function(){
+//			$(this).children('.plan_out').hide()
+//		})
+//	})
+	function btn1(obj){
+		event.stopPropagation();
+		//按钮的toggle,如果div是可见的,点击按钮切换为隐藏的;如果是隐藏的,切换为可见的。 
+		obj.children('.plan_out').toggle(0);
+		return false;
+	}
+	$(document).click(function(event) {
+		var _con = $('.plan_out'); // 设置目标区域
+		if(!_con.is(event.target) && _con.has(event.target).length === 0) { // Mark 1
+			//$('#divTop').slideUp('slow');  //滑动消失
+			$('.plan_out').hide(0); //淡出消失
+		}
+	});
+	function btn2(){
+		alert(222);
+	}
+</script>
+</html>

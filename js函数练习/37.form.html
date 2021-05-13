@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<body></body>
+<script>
+	var o = {};
+	for (i = 0;i<10;i++) {
+		o[i] = i * 2;
+	}
+	console.log(o[1])
+	
+	for (var key in o) {
+//		console.log(o[key])
+//		console.log(key)
+		console.log(key + "==" +o[key])
+	}
+	
+</script>
+</html>

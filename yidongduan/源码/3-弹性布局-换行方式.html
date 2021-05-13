@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			section{
+				background: #fff;
+				padding: 10px;
+				display: flex;
+				
+				width: 500px;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				flex-wrap: wrap;
+				flex-wrap: wrap-reverse;
+				
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background: #17b3e4;
+				color: #fff;
+				font-size: 100px;
+				text-align: center;
+				line-height: 200px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			flex-wrap				子元素的换行方式
+				nowrap（默认值）		不换行
+										1、所有子元素始终都在一行显示，不管父级宽度能否放的下
+										2、如果父级宽度放不下所有子元素，会把子元素宽度收缩（原理是后面要说的收缩比例）
+				wrap				换行，第一行在上方（从上到下，正序）
+				wrap-reverse		换行，第一行在下方（从下到上，倒序）
+				
+				注意：换行方式（flex-wrap）的优先级没有排列方式（flex-direction）的优先级高。如果给了排列方式后，再给换不换行都没有意义（像内嵌与行间样式一样）
+		-->
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</section>
+	</body>
+</html>

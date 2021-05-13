@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../ionic/js/jquery-1.9.1.min.js" ></script>
+	<body>
+		<div>
+			<label onclick="sex($(this))">男</label>
+			<label onclick="sex($(this))">女</label>
+			<input type="hidden" id="sex" value="1" />
+		</div>
+
+	</body>
+	<script>
+		function sex(obj){
+			if(obj.html() == '男'){
+				$('#sex').val(1);
+			}else{
+				$('#sex').val(2);
+			}
+		}
+	</script>
+
+</html>

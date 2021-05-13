@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			
+			#s3{
+				display: flex;
+				background: #fff;
+				margin-top: 100px;
+			}
+			#s3 div{
+				height: 200px;
+			}
+			#s3 div:nth-child(1){
+				background: #AC5CF5;
+				
+				
+				flex: 0 0 400px;
+			}
+			#s3 div:nth-child(2){
+				background: #FFFF00;
+				font-size: 100px;
+				
+				flex: 2 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			flex			前面三个属性的缩写
+							默认值为0 0 auto		（扩展比例 收缩比例 宽度）
+								
+		-->
+		<section id="s3">
+			<div><span>我是陈学辉</span></div>
+			<div><span>我是一只小蜜蜂，飞到西飞到东！</span></div>		
+		</section>
+	</body>
+</html>

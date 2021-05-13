@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		
+	</body>
+<script>
+	var array = [65,458,63,33,55,99];
+	//循环控制趟数
+	for (var i = 0; i < array.length - 1; i++) {
+		for (var j = 0; j < array.length - 1;j++) {
+			if (array[j] > array[j + 1]) {
+				var tmp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = tmp
+			}
+		}
+	}
+	console.log(array);
+</script>
+</html>

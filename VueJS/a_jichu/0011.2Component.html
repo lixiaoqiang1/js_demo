@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<!--定义全集组建-->
+			<jspang></jspang>
+			<panda v-bind:here="message"></panda>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		Vue.component('jspang',{
+			template:`<h2 style="color:red">hello word</h2>`	
+		})
+		
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'江西省',
+			},
+			components:{
+				"panda":{
+					template:`<h2 style="color:green">绿色...{{here}}</h2>`,
+					props:['here']
+				}
+			}
+		})
+	</script>
+</html>

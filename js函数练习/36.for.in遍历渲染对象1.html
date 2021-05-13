@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	//便利对象的属性
+//	var obj = {};
+//	for ( var i = 0;i<10;i++) {
+//		obj[i] = i*2;
+//	}
+//	for (var key in obj) {
+//		console.log(key + "==" + obj[key]);
+//	}
+	
+	
+	var o = {
+		name:"张三",
+		age:18,
+		sex:"男",
+		dog:{
+			"1":"111",
+			"2":"222",
+			"3":"333",
+		},
+//		salary:function(){
+//			console.log("大家好，我是"+this.name);	
+//		}
+	};	
+	
+	var a = {"people": [
+				{ "name": "张三", "sex":"12", "地址": "广州" },
+				{ "name": "张四", "sex":"32", "地址": "深圳"},
+				{ "name": "张五", "sex":"43", "地址": "南昌" }
+				]
+			}
+//	o.salary();
+//	console.log(o.dog[1]);
+//	console.log(o);
+	var html = '';
+	for (var key in a.people) {
+		console.log(a.people[key].name)
+		html += '<div class="inner">';
+		html += '<h3>'+ a.people[key].name + '</h3>';
+		html += '</div>';
+	}
+
+	$('#box').html(html)
+</script>
+</html>
+</html>

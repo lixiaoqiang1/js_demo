@@ -1,0 +1,75 @@
+<html>
+	<meta charset="UTF-8">
+
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<style>
+		.active{color: red;}
+	</style>
+	<body>
+		<div class="panel-body">
+			<label><input type="checkbox" name="all" /><span class="aa">全选</span></label>
+			<label><input type="checkbox" name="one" /><span class="aa">11</span></label>
+			<label><input type="checkbox" name="one" /><span class="aa">11</span></label>
+			<label><input type="checkbox" name="one" /><span class="aa">11</span></label>
+			<label><input type="checkbox" name="one" /><span class="aa">11</span></label>
+		</div>
+	</body>
+	<script>
+//		$('input[name="all"]').click(function() {
+//			if($(this).prop("checked") == true) {
+//				$('input[name="one"]').prop("checked", true);
+//			} else {
+//				$('input[name="one"]').prop("checked", false);
+//			}
+//		});
+//		$('input[name="one"]').click(function() {
+//			if($('input[name="one"]').prop("checked") != false) {
+//				$('input[name="all"]').prop("checked", true);
+//			} else {
+//				$('input[name="all"]').prop("checked", false);
+//			}
+//		});
+$('input[name="all"]').click(function(){  
+	$(this).siblings('.aa').addClass('active')
+    if($(this).is(':checked')){  
+    	 $(this).siblings('.aa').addClass('active')
+        $('input[name="one"]').each(function(){  
+            //此处如果用attr，会出现第三次失效的情况  
+            $(this).prop("checked",true);  
+            $(this).siblings('.aa').addClass('active')
+        });  
+    }else{  
+    	$(this).siblings('.aa').removeClass('active')
+        $('input[name="one"]').each(function(){  
+            $(this).removeAttr("checked",false);  
+            $(this).siblings('.aa').removeClass('active')
+        });   
+    }  
+          
+});  
+//判断是否全部选中
+$('input[name="one"]').click(function(){ 
+	if($(this).is(':checked')){
+		$(this).siblings('.aa').addClass('active')
+	}else{
+		$(this).siblings('.aa').removeClass('active')
+	}
+	var listbox1 = $('input[name="one"]').length;
+	var listbox2 = $('input[name="one"]:checked').length;
+	if (listbox1 == listbox2) {
+	    $('input[name="all"]').prop("checked",true);  
+	    $('input[name="all"]').siblings('.aa').addClass('active')
+	    console.log("全部选中！");
+	} else {
+	    $('input[name="all"]').prop("checked",false);
+	    $('input[name="all"]').siblings('.aa').removeClass('active')
+	    console.log("部分选中！");
+	}
+}); 
+
+</script>
+
+</html>

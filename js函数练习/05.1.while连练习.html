@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/jquery.js" ></script>
+</head>
+<body>
+
+</body>
+<script>
+	//for 当循环次数已加
+	//while
+	//do while
+	//
+/*	var i = 1;
+	var sum = 0;
+	while(i <= 100) {
+		sum += i;
+		i++;
+	}*/
+//	console.log(sum);
+	
+	//求1小于100以内的和
+/*	var i = 1;
+	var sum = 0;
+	do{
+		sum = sum + i;
+		i++;
+	} while(i<100);
+	console.log(sum);*/
+	//输入任意一位整数，求他的位数
+	var number = parseInt(prompt("请输入数字"));
+	if (number) {
+		//求整数的位数
+		var i = 1;
+		while(number >= 2){
+			number = parseInt(number/10);//parseInt（）意思是取整数
+			i ++;
+		}
+		console.log(i);
+	}else if(number === 0) {
+		console.log("1")
+	}else{
+		console.log("请输入数字")//输入的不是数字显示不是数字
+		alert("请输入数字");
+	}
+	console.log(i)
+	alert(i);
+	//输入一个整数，翻转输出
+</script>
+</html>

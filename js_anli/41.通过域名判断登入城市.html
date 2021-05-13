@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="网页作者" />
+    <meta name="Copyright" content="网站版权" />
+    <meta name="keywords" content="网站关键字" />
+    <meta name="description" content="网站描述" />
+    <title>助贷网</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" />-->
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <style>
+.mui-btn-danger{width: 120px;height: 50px;border-radius: 4px;border:1px #CCCCCC solid;text-align: center;line-height: 48px;}
+.mui-btn-danger:active{background-color: red;color: white;}
+    </style>
+</head>
+<body>
+	<div class="mui-btn-danger">btn111</div>
+</body>
+<script>
+// 通过域名判断城市
+ var province = '' ;
+ var city = '' ;
+ jQuery.getScript("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js",function(){
+      province = remote_ip_info["province"];
+      city = remote_ip_info["city"];  
+      alert(city);
+ }) ; 
+</script>
+	
+</html>

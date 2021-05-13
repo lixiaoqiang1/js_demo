@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+		
+	</head>
+
+<body>
+<button type="button" class="btn btn-danger">按钮1</button>
+<button type="button" class="btn btn-default">按钮2</button>
+<button type="button" class="btn btn-default">按钮3</button>
+</body>
+
+<script>
+function getMin(array){
+	array = array || [];
+	//假设第一项是最小值
+	var min = array[0];
+	for(var i = 1;i < array;i++){
+		if(min > array[i]){
+			min = array[i];
+		}
+	}
+	return min;
+}
+console.log(getMin([2,3,4,6,5]));
+
+//对数组排序，从小到大
+function Sort(array){
+	array = array || [];
+	for(var i = 0;i < array.length - 1 -i;j++){
+		if(array[j] > array[j + 1]){
+			var tmp = array[j];
+			array[j] = array[j + 1];
+			array[j + 1] = tmp;
+			isSort = false;
+		}
+	}
+	//外层循环 控制趟数
+}
+</script>
+</html>

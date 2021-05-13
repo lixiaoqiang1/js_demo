@@ -1,0 +1,35 @@
+<HTML>
+
+<HEAD>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
+<SCRIPT type="text/javascript">$(document).ready(function() {
+ $("#checkedAll").click(function(){
+  if($(this).attr("checked") == true){ //check all
+   $("input[@name='checkbox_name[]']").each(function(){
+    $(this).attr("checked",true);
+   });
+  }else{
+   $("input[@name='checkbox_name[]']").each(function(){
+    $(this).attr("checked",false);
+   });
+  }
+ });
+});
+</SCRIPT>
+</HEAD>
+<BODY>
+ <div class="components-list">
+ <input type="checkbox" name="checkbox_name[]" id="checkbox_name_1" />1<br />
+ <input type="checkbox" name="checkbox_name[]" id="checkbox_name_2" />2<br />
+ <input type="checkbox" name="checkbox_name[]" id="checkbox_name_3" />3<br />
+ <input type="checkbox" name="checkbox_name[]" id="checkbox_name_4" />4<br />
+ <input type="checkbox" name="checkedAll" id="checkedAll"/>全选/取消全选
+ </div>
+ 
+ <select id="test">
+  <option value="a">A</option>
+  <option value="b">B</option>
+  <option value="c" selected>C</option>
+</select>
+</BODY></HTML>

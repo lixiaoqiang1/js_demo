@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+		<input type="text" id="username" />
+		<button type="button" class="btn btn-danger" id="btnok">点击</button>
+	</body>
+	<script>
+		$(function(){
+			//绑定click事件
+			$('#btnok').bind('click',function(){
+				var username = $('#username').val();
+				//发送Ajax请求
+				$.ajax({
+					type:"post",
+					url:"php/demo02.php",
+					data:'username='+username,
+					success:function(msg){
+						alert(msg);
+						console.log(msg);
+					}
+				});	
+			});
+		});
+	</script>
+</html>

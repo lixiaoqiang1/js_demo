@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		#btnShow {
+			margin: 100px auto 0;
+			width: 90px;
+			display: block;
+		}
+		
+		.divTop {
+			border: 2px solid #666666;
+			position: absolute;
+			display: none;
+			width: 400px;
+			height: 200px;
+			color: #333;
+			background: #efefef;
+			padding-top: 10px;
+			text-align: center;
+			font: 16px/30px "微软雅黑";
+			margin-top: -105px;
+			margin-left: -200px;
+			left: 50%;
+			top: 50%;
+		}
+	</style>
+
+	<body>
+		<input type="button" onclick="btnShow()" value="弹出框按钮" />
+		<div class="divTop" id="divTop">点击空白区域弹出层关闭！</div>
+	</body>
+
+	<script>
+		function btnShow() {
+			event.stopPropagation();
+			//按钮的toggle,如果div是可见的,点击按钮切换为隐藏的;如果是隐藏的,切换为可见的。 
+			$('#divTop').toggle(0);
+			return false;
+		}
+
+		//点击空白处隐藏弹出层，下面为滑动消失效果和淡出消失效果。
+		$(document).click(function(event) {
+			var _con = $('#divTop'); // 设置目标区域
+			if(!_con.is(event.target) && _con.has(event.target).length === 0) { // Mark 1
+				//$('#divTop').slideUp('slow');  //滑动消失
+				$('#divTop').hide(0); //淡出消失
+			}
+		});
+	</script>
+
+</html>

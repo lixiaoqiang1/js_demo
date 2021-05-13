@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<title>自定义图标</title>
+		<!--<link rel="stylesheet" href="css/viewer.css" />-->
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<!--<script type="text/javascript" src="js/viewer.js" ></script>-->
+	</head>
+	<style>
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		img {
+			width: 100px;
+			height: 100px;
+		}
+		
+		.addimg {
+			width: 98px;
+			height: 98px;
+			cursor: pointer;
+			position: relative;
+			border: 1px solid #e5e5e5;
+			background: url(https://staticcdn.zhudai.com/default/kefu/images/upload_bg.jpg) no-repeat;
+			background-position: 38px;
+		}
+		
+		.hidefile1 {
+			width: 98px;
+			height: 98px;
+			border: none;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+		}
+	</style>
+
+	<body>
+		<div class="addimg">
+			<input type="file" class="hidefile1" onchange="preview(this.files)" name="mypic[]" accept="image/gif,image/jpeg,image/jpg,image/png,application/msword,application/pdf" _val="">
+		</div>
+		<span class="annextext">添加附件</span>
+	</body>
+	<script>
+		function preview(files) {
+			var file = files[0];
+			var reader = new FileReader();
+			//var base64img;
+			var id = $('#id').val();
+			reader.onload = function() {
+				//大小判断
+				if(file.size > 4048576) {
+					alert('图片不能超过4M');
+					return false;
+				}
+
+//				$(file).next().show();
+
+				//新建一个列表
+				var addlilisttmp = '<li>' + 
+										'<div class="newaddimg">' + 
+										'<img class="pic viewer-toggle" id="pic" src="' + reader.result + '">' + 
+										'<input type="hidden" class="hidefile" name="mypic[]" value="' + reader.result + '">' + 
+									'</li>';
+				$('.addimg').eq(0).before(addlilisttmp);
+				console.log(addlilisttmp);
+				var image = [];
+				//图片base64编码
+//				$.each($('.hidefile'), function(key, value) {
+//					image[key] = $(this).val();
+//				});
+				if(image.length > 10) {
+					alert('超出附件的张数！');
+					return false;
+				}
+				//异步提交数据
+				var imgsize = file.size;
+				$.ajax({
+					type: 'post',
+					url: '/kefu/kefu_account/ajax_upload_img.html',
+					dataType: 'json',
+					data: {
+						'id': id,
+						'image': image,
+						'imgsize': imgsize
+					},
+					timeout: 60000, //超时时间：60秒
+					success: function(data) {
+						if(data == 1) {
+							alert('提交成功！');
+							window.location.reload();
+						} else {
+							alert('提交失败！');
+						}
+						return false;
+					}
+				});
+			}
+			reader.readAsDataURL(file);
+		}
+	</script>
+
+</html>

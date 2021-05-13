@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+		<title></title>
+	</head>
+
+	<body>
+		<p><input type="button" value="投票2" onclick="vote()" /> </p>
+		<div id="preg"></div>
+		<form action="01-vote.php" method ='post'>
+			用户名：<input type="text" name="user" id="user" value="" /><br />
+			邮件地址<input type="text" name="enail" id="enail" value="" /><br />
+			<input type="button" name="submit" id="submit" value="注册" />
+		</form>
+	</body>
+<script>
+	function vote(){
+		var hh = document.createElement('img');
+		hh.setAttribute('src','images/pic1.jpg');
+		document.getElementById('preg').appendChild(hh);
+	}
+	jQuery.Array_option = {
+		myfunction:function(){
+			console.log('Array_option中的函数');
+			console.log('hello World');
+		}
+	}
+</script>
+</html>

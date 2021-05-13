@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body onbeforeunload="return CheckUnsave();">
+
+		<input type="submit" onClick="ChangeState();">  />
+		<button type="button" class="btn btn-danger" id="btn">提交</button>
+	</body>
+<script>
+	//两个都可以
+	$(window).bind('beforeunload',function(){return '您输入的内容尚未保存，确定离开此页面吗？';});
+	
+//	window.onbeforeunload = function(event) { return confirm("确定离开此页面吗？"); }
+
+$('#btn').click(function(){
+	//提交绑定事件
+	$(window).unbind('beforeunload');
+})
+
+
+</script> 
+</script>
+</html>

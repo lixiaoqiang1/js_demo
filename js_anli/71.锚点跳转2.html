@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <title>点击返回指定位置</title>
+    <style>
+        #nav{width: 100%;height: 40px;margin-bottom: 300px;background: #eeeeee;}
+        #go1{
+            width:50%;
+            height:1000px;
+            text-align: center;
+            font:bold 100px/300px simhei;
+            list-style-type: none;
+            background:yellow;
+            color:blue;
+            margin:50px 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">导航锚点1</div>
+    <li id="go1">内容区域</li>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+
+        $('#nav').click(function(){
+        	$('html,body').animate({
+        		scrollTop:$('#go1').offset().top
+        	}, 800);
+        })
+    </script>
+</body>
+</html

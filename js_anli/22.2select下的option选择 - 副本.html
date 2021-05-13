@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js" ></script>
+	</head>
+	<body>
+		<div id="page_out">
+			<select id="which_page">
+				<option value="sem1">车抵贷专用简版</option>
+				<option value="sem2">车抵贷专用繁版</option>
+				<option value="sem3">保单贷专用简版</option>
+				<option value="sem4">公积金贷专用简版</option>
+				<option value="sem5">公积金贷专用繁版</option>
+			</select>
+		</form>
+	</body>
+	<script>
+		var sem_title = [
+		        {href:'https://www.bangdai.com/sem/index.html?t=test_chedidaizhuanyongjianban',title:'车抵贷专用简版'},
+		        {href:'https://www.bangdai.com/sem/index.html?t=test_chedidaizhuanyongfanban',title:'车抵贷专用繁版'},
+		        {href:'https://www.bangdai.com/sem/index.html?t=test_baodandaizhuanyongjianban',title:'保单贷专用简版'},
+		        {href:'https://www.bangdai.com/sem/index.html?t=test_gongjijindaizyjb',title:'公积金贷专用简版'},
+		        {href:'https://www.bangdai.com/sem/index.html?t=test_gongjijindaizyfb',title:'公积金贷专用繁版'},
+				]
+		$("#page_out").change(function(){
+			var whichpage = $("#which_page").val()
+			console.log(whichpage)
+		});
+		
+		
+	</script>
+	
+
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>{{zhi}}</p>
+			<p>{{zhi1}}</p>
+			<p><button type="button" @click="btn1" class="bt btn-danger">btn1</button> </p>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				zhi:0,
+				zhi1:111,
+			},
+			methods:{
+				btn1:function(){
+					this.zhi++
+				}
+			},
+			watch:{
+				zhi:function(obj,aaa,bbb){
+					this.zhi1 = 'aaaaaa'
+					console.log(obj+'obj')
+					console.log(aaa+'aaa')
+					console.log(bbb+'bbb')
+				}
+			}
+		})
+	</script>
+</html>

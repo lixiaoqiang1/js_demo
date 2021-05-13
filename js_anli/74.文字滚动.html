@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<title>520生活圈，快乐有大家</title>
+		<link rel="shortcut icon" type="images/x-icon" href="images/yetou.jpg">
+		<style type="text/css">
+			/*清除开始*/
+			html{width: 100%;height: 100%; font-size: 100px; }
+			body{
+				width: 100%;height: 100%;
+			    min-width: 320px;/*为什么这里不能用rem，因为这是body的宽度，如果用rem那就一直都是1，没有办法缩小*/
+			    max-width: 640px;
+			    font-size: 0.3rem;
+			    margin: auto;
+			    font-family: "microsoft yahei",arial;
+			    color: #333333;
+			}
+			*{ margin: 0; padding: 0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+			h1,h2,h3,h4,h5,h6,p,dd,label{margin:0;font-weight: normal;}
+			ul,ol,dl{margin:0;padding:0;list-style:none;}
+			img,input{border:none;vertical-align:middle;outline: none;}
+			a{text-decoration:none;color:inherit;outline:none;}
+			.clearfix{clear:both}
+			.text-center{text-align: center;}
+			/*清除结束*/
+			
+			.swiper_wrap {
+				position: relative;
+				width: 100%;
+				height: 30px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			ul {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				color: #444;
+				font-size: 14px;
+				margin-top: 1px;
+			}
+			
+			ul li {
+				line-height: 30px;
+				padding-left: 24px;
+			}
+			
+			.lt {
+				position: absolute;
+				left: -1px;
+				top: 7px;
+				font-family: "宋体";
+				font-weight: bold;
+				color: #AAAAAA;
+			}
+			
+			.gt {
+				position: absolute;
+				right: 26px;
+				top: 7px;
+				font-family: "宋体";
+				font-weight: bold;
+				color: #AAAAAA;
+			}
+			
+			.swiper_wrap .font_inner a {
+				color: #444;
+			}
+			
+			.swiper_wrap a:hover {
+				color: #FA9101;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div class="swiper_wrap">
+			<ul class="font_inner" style="height: 120px; top: 0px;">
+				<li>
+					<h5>1调用两条新闻并设定时间上下</h5>
+				</li>
+				<li>
+					<h5>1调用两条新闻并设定时间上下</h5>
+				</li>
+				<li>
+					<h5>1调用两条新闻并设定时间上下</h5>
+				</li>
+				<li>
+					<h5>1调用两条新闻并设定时间上下</h5>
+				</li>
+				
+			</ul>
+			<a href="javascript:void(0)" class="lt">&lt;</a>
+			<a href="javascript:void(0)" class="gt">&gt;</a>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		
+		<script type="text/javascript">
+		//界面尺寸修正
+		var doc = document,
+		    win = window,
+		    oBody = doc.documentElement || doc.body,
+		    resize = "onorientationchange" in win ? "orientationchange" : "resize";
+		rem();
+		addEventListener(resize, rem, false);
+		function rem() {
+		    /*doc.body.clientWidth是获取当前的body的宽度，640是我们的移动端的最大宽度，相除就会得出一个比例，在乘以100px，就会得出我们当前的1rem等于多少px*/
+		    oBody.style.fontSize = 100 * (doc.body.clientWidth / 750) + "px";
+		    console.log(oBody.style.fontSize);
+		}
+		$(function() {
+				//1文字轮播(2-5页中间)开始
+
+				$(".font_inner li:eq(0)").clone(true).appendTo($(".font_inner")); //克隆第一个放到最后(实现无缝滚动)
+				var liHeight = $(".swiper_wrap").height(); //一个li的高度
+				//获取li的总高度再减去一个li的高度(再减一个Li是因为克隆了多出了一个Li的高度)
+				var totalHeight = ($(".font_inner li").length * $(".font_inner li").eq(0).height()) - liHeight;
+				$(".font_inner").height(totalHeight); //给ul赋值高度
+				var index = 0;
+				var autoTimer = 0; //全局变量目的实现左右点击同步
+				var clickEndFlag = true; //设置每张走完才能再点击
+
+				function tab() {
+					$(".font_inner").stop().animate({
+						top: -index * liHeight
+					}, 400, function() {
+						clickEndFlag = true; //图片走完才会true
+						if(index == $(".font_inner li").length - 1) {
+							$(".font_inner").css({
+								top: 0
+							});
+							index = 0;
+						}
+					})
+				}
+
+				function next() {
+					index++;
+					if(index > $(".font_inner li").length - 1) { //判断index为最后一个Li时index为0
+						index = 0;
+					}
+					tab();
+				}
+
+				function prev() {
+					index--;
+					if(index < 0) {
+						index = $(".font_inner li").size() - 2; //因为index的0 == 第一个Li，减二是因为一开始就克隆了一个LI在尾部也就是多出了一个Li，减二也就是_index = Li的长度减二
+						$(".font_inner").css("top", -($(".font_inner li").size() - 1) * liHeight); //当_index为-1时执行这条，也就是走到li的最后一个
+					}
+					tab();
+				}
+				//切换到下一张
+				$(".swiper_wrap .gt").on("click", function() {
+					if(clickEndFlag) {
+						next();
+						clickEndFlag = false;
+					}
+				});
+				//切换到上一张
+				$(".swiper_wrap .lt").on("click", function() {
+					if(clickEndFlag) {
+						prev();
+						clickEndFlag = false;
+					}
+				});
+				//自动轮播
+				autoTimer = setInterval(next, 3000);
+				$(".font_inner a").hover(function() {
+					clearInterval(autoTimer);
+				}, function() {
+					autoTimer = setInterval(next, 3000);
+				})
+
+				//鼠标放到左右方向时关闭定时器
+				$(".swiper_wrap .lt,.swiper_wrap .gt").hover(function() {
+					clearInterval(autoTimer);
+				}, function() {
+					autoTimer = setInterval(next, 3000);
+				})
+				//1文字轮播(2-5页中间)结束
+			})
+		</script>
+
+	</body>
+
+</html>

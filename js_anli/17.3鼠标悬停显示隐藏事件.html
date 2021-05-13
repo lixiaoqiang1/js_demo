@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+		<style>
+			input {
+				width: 200px;
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>h2h2h2h2hh2h</h2>
+		<div>文字内容部分</div>
+	</body>
+	<script>
+		//鼠标点击显示，再次点击隐藏
+
+		$('h2').mouseover(function() {
+			$("div").show();
+		});
+		$('h2').mouseout(function() {
+			$("div").hide();
+		});
+	</script>
+
+
+</html>

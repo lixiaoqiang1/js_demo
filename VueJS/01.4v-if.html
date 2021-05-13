@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<style type="text/css">
+		.class1{background: #444;color: #eee;}
+	</style>
+	<body>
+		<div id="app">
+			<p v-if="seem">登录成功</p>
+			<p v-else="no">输入有误</p>
+			<button type="button" @click="btn">btn</button>
+			<template v-if="ok">
+				<h1>教程</h1>
+				<p>周三</p>
+				<p>星期三</p>
+			</template>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				seem:false,
+				ok:true
+			},
+			methods:{
+				btn:function(){
+					this.seem = true
+				}
+			}
+		})
+	</script>
+</html>

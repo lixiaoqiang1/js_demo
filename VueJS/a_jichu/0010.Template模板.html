@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			{{message}}
+		</div>
+		<template id="dd2">
+			<h2 style="color: green;">我是template模板</h2>
+		</template>
+		<script type="x-template" id="add3">
+			<h2 style = "color:red">我是选项add3模板</h2>
+		</script>
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'你好',
+			},
+			template:"#dd2"
+//			template:`<h2 style = "color:red">我是选项模板</h2>`
+		})
+		
+	</script>
+</html>

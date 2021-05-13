@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			#s1{
+				background: #fff;
+				padding: 10px 0;
+				display: flex;
+				
+				/*justify-content: flex-start;*/
+				/*justify-content: flex-end;*/
+				/*justify-content: center;*/
+				
+				/*justify-content: space-around;*/
+				
+				height: 1500px;
+				flex-direction: column;
+				/*justify-content: space-around;*/
+				justify-content: space-between;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background: #17b3e4;
+				color: #fff;
+				font-size: 100px;
+				text-align: center;
+				line-height: 200px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			justify-content				子元素的水平（主轴）对齐方式
+				flex-start（默认值）		左对齐
+				flex-end				右对齐
+				center					居中对齐
+				space-between			左右两端对齐，元素之间的间隔自动平分
+				space-around			左右分散居中对齐，每个元素两侧的间隔相等
+				
+				注意：让元素竖着排，其实是把主轴旋转了90度，竖着排的元素依然可以使用justify-content去对齐
+		-->
+		<section id="s1">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</section>
+	</body>
+</html>

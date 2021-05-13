@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <s
+        <title>
+            RunJS 演示代码
+        </title>
+        <script>
+            jQuery(function($){
+                $(".subList ul.serch li").bind("click",function(){
+                    $("#sub-app").append("<li><p>上午</p></li>");
+                });
+                $("#sub-app").delegate("li", "click", function() {
+                    $(this).remove();
+                });
+            });
+        </script>
+  </head>
+    <body>
+        <div class="subList">
+            subList
+            <ul class="serch">
+                <li>add</li>
+            </ul>
+        </div>
+        <div class="sub-del">
+            <ul id="sub-app">
+                <li>
+                    <p>
+                        下午
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        上午
+                    </p>
+                </li>
+            </ul>
+  </div>
+  </body>
+</html>

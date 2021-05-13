@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<form id="uploadForm" action="" method="post" enctype="multipart/form-data">
+			<h1>多文件上传 </h1>
+			<table>
+				<tr>
+					<td>上传文件： <input type="file" name="file[]" id="file" multiple="multiple" />
+						<a href="javascript:;" id="add">[+]</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="上传" id="but" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+</html>
+<script>
+	//添加
+	$(document).on("click", "#add", function() {
+		var str_tr = "<tr>" + $(this).parents("tr").html() + "</tr>";
+		//js 替换字符串样式
+		str_tr = str_tr.replace(/\+/, '-');
+		var new_str_tr = str_tr.replace(/add/, 'del');
+		$(this).parents("tr").after(new_str_tr);
+	})
+	//删除
+	$(document).on("click", "#del", function() {
+		$(this).parents("tr").remove();
+	})
+	//文件上传
+	$("#but").click(function() {
+		var formData = new FormData($("#uploadForm")[0]);
+		$.ajax({
+			url: 'http://localhost/demo/selfWork_MVC/easymvc/app/Views/Index/upload.php',
+			type: 'POST',
+			data: formData,
+			async: false,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(returndata) {
+				alert(returndata);
+			},
+			error: function(returndata) {
+				alert(returndata);
+			}
+		});
+	})
+</script>

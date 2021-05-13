@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<panda></panda>
+			<city></city>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var panda = {
+			template:`<div>
+					<p>今天星期三111</p>
+					<p>23123</p>
+					<p>23123</p>
+					<p>23123</p>
+					<p>23123</p>
+			</div>`
+		}
+		var city = {
+			template:`<div style="color:red">今天星期三222</div>`
+		}
+		
+		var app = new Vue({
+			el:'#app',
+			data:{
+				
+			},
+			components:{
+				"city":city,
+				"panda":panda
+			}
+		})
+	</script>
+</html>

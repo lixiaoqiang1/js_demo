@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="网页作者" />
+    <meta name="Copyright" content="网站版权" />
+    <meta name="keywords" content="网站关键字" />
+    <meta name="description" content="网站描述" />
+    <title>助贷网</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    	html,body{height: 100%;width: 100%;}
+    	footer{width: 100%;height: 40px;}
+    	.posit{position: fixed;left: 0;right: 0;bottom: 0;min-width: 320px;max-width: 640px; margin: auto;}
+    </style>
+</head>
+<body>
+	<footer>
+		今天星期二今天星期二今天星期二今天星期二今天星期二今天星期二
+	</footer>
+</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+
+	<script type="text/javascript"> 
+		//当窗口高度大于时候，footer定位
+		if(document.body.scrollHeight > 320){
+			$('footer').addClass('posit');
+		}
+	</script> 
+</html>

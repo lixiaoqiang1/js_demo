@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<title>jQuery 让你的Tab菜单滚动的代码</title>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<style>
+ body {
+  font-family:arial;
+  font-size:12px; 
+ }
+ a {
+  color:#333;
+  text-decoration:none;
+  display:block;
+ }
+ a:hover {
+  color:#888;
+  text-decoration:none;
+ }
+ #moving_tab {
+  overflow:hidden;
+  width:300px;
+  position:relative
+  border:1px solid #ccc; 
+  margin:0 auto;
+ }
+  #moving_tab .tabs {
+   position:relative; 
+   height:30px;
+   padding-top:5px;
+   cursor:default;
+  }
+  #moving_tab .tabs .item {
+   position:relative;
+   z-index:10;
+   float:left;
+   display:block;
+   width:150px;
+   text-align:center;
+   font-size:14px;
+   font-weight:700; 
+  }
+  #moving_tab .tabs .lava {
+   position:absolute;
+   top:0; left:0;
+   z-index:0;  
+   width:150px;
+   height:30px;
+   background:#abe3eb;
+  }
+  #moving_tab .content {
+   position:relative;
+   overflow:hidden;
+   background:#abe3eb;
+   border-top:1px solid #d9fafa;
+  }
+  #moving_tab .panel {
+   position:relative;
+   width:600px;
+  }
+  #moving_tab .panel ul {
+   float:left;
+   width:300px;
+   padding:0;
+   margin:0;
+   list-style:none;
+  }
+   #moving_tab .panel ul li {
+    padding:5px 0 5px 10px; 
+    border-bottom:1px dotted #fff;
+   }
+ </style>
+ <script>
+ $(document).ready(function () {
+  $('.lava').css({left:$('span.item:first').position()['left']});
+  $('.item').mouseover(function () {
+   $('.lava').stop().animate({left:$(this).position()['left']}, {duration:200});  
+   $('.panel').stop().animate({left:$(this).position()['left'] * (-2)}, {duration:200});
+  });
+ });
+ </script>
+</head>
+<body>
+<div id="moving_tab">
+ <div class="tabs">
+  <div class="lava"></div>
+  <span class="item">Popular Posts</span>
+  <span class="item">Recent Posts</span>
+ </div>
+ <div class="content">      
+  <div class="panel">      
+   <ul>
+    <li><a href='#'>Panel 01 Item 01</a></li>
+    <li><a href='#'>Panel 01 Item 02</a></li>
+    <li><a href='#'>Panel 01 Item 03</a></li>
+    <li><a href='#'>Panel 01 Item 04</a></li>
+    <li><a href='#'>Panel 01 Item 05</a></li>
+   </ul>
+   <ul>
+    <li><a href='#'>Panel 02 Item 01</a></li>
+    <li><a href='#'>Panel 02 Item 02</a></li>
+    <li><a href='#'>Panel 02 Item 03</a></li>
+    <li><a href='#'>Panel 02 Item 04</a></li>
+    <li><a href='#'>Panel 02 Item 05</a></li>   
+   </ul>      
+  </div>
+ </div> 
+</div>
+</body>
+</html>

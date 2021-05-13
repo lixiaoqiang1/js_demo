@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>删除元素</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+		
+	</head>
+	<body>
+		<ul id="box">
+			<li>1111<a href="javascript:;">删除</a></li>
+			<li>2222<a href="javascript:;">删除</a></li>
+			<li>3333<a href="javascript:;">删除</a></li>
+			<li>4444<a href="javascript:;">删除</a></li>
+			<li>5555<a href="javascript:;">删除</a></li>
+			<li>6666<a href="javascript:;">删除</a></li>
+		</ul>
+	</body>
+<script>
+	window.onload=function (){
+		var aA = document.getElementsByTagName('a');
+		var obox = document.getElementById('box');
+		
+		for(var i=0;i<aA.length;i++)
+		{
+			aA[i].onclick = function ()
+			{
+				obox.removeChild(this.parentNode);
+			};
+		}
+	};
+</script>
+</html>

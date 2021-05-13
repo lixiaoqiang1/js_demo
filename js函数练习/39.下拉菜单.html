@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>jQuery下拉菜单</title>
+		<script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js"></script>
+		<style type="text/css">
+			ul{ margin:0; padding:0;}
+			ul li{ list-style:none}
+			#div{ width:960px; height:28px;}
+			#div ul li{ float:left; height:28px; display:inline; line-height:28px; padding:0px 20px; position:relative;}
+			#div ul li ul{ position:absolute; z-index:99; display:none; top:28px; width:200px; left:0px;}
+			#div ul li ul li{ display:block; width:140px; height:26px; line-height:26px; background-color:#666; border-bottom:1px #FFFFFF solid;}
+			#div ul li a{ color:#000000; text-decoration:none;}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				$("#div ul li").hover(function() {
+					$(this).css("background", "#333333").children("ul").slideDown();
+				}, function() {
+					$(this).css("background", "#fff").children("ul").slideUp();
+				})
+				$("#div ul li ul li").hover(function() {
+					$(this).css("background", "#333");
+				}, function() {
+					$(this).css("background", "#666");
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div">
+			<ul>
+				<li>
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">企业资源</a>
+					<ul>
+						<li>企业资源</li>
+						<li>企业资源</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">新闻中心</a>
+					<ul>
+						<li>新闻中心</li>
+						<li>新闻中心</li>
+						<li>新闻中心</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">工程业绩</a>
+					<ul>
+						<li>工程业绩</li>
+						<li>工程业绩</li>
+						<li>工程业绩</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">仪器设备</a>
+					<ul>
+						<li>仪器设备</li>
+						<li>仪器设备</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">企业文化</a>
+					<ul>
+						<li>企业文化</li>
+						<li>企业文化</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">联系我们</a>
+					<ul>
+						<li>联系我们</li>
+						<li>联系我们</li>
+						<li>联系我们</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	
+</html>

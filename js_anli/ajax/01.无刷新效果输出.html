@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn1" type="submit"">btn1</button>
+		
+	</body>
+	<script>
+		window.onload = function(){
+			document.getElementById('btn1').onclick = function{
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function(){
+					if(xhr.readystate == 4){
+						alert(xhrponseText);
+					}
+				}
+				xhr.open('get','jison.php');
+				xhr.send(null);
+			}
+		}
+	</script>
+	
+
+</html>

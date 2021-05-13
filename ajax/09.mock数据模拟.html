@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax请求数据并渲染到页面</title>
+		<script type="text/javascript" src="../common/js/jquery-1.9.1.min.js" ></script>
+		<script src="http://mockjs.com/dist/mock.js"></script>
+		
+	</head>
+
+	<body>
+		<div id="test"></div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	Mock.mock("http://rich.cn","get",{
+        "name":"@name",
+        "isTrue|1":true,
+        "color":"@color",
+        "string|1-10": "★",
+        "boolean|1": true
+    })
+    $.ajax({
+        url:'http://rich.cn',//模拟接口
+        method:"get",
+        success:function(e){
+            console.info(e)
+        }
+    })
+</script>

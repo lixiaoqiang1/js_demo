@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		//一维数组去重
+		let arr = [1, 2, 2, 3];
+		let arr1 = [...new Set(arr)]
+		// let arr1 = Array.from(new Set(arr))
+		console.log(arr1)
+		
+		var permutation = function(s) {
+		    const res = new Set()
+		    const visit = {}
+		    function dfs(path) {
+		        if(path.length === s.length) return res.add(path)
+		        for (let i = 0; i < s.length; i++) {
+		            if (visit[i]) continue
+		            visit[i] = true
+		            dfs(path + s[i])
+		            visit[i] = false
+		        }
+		    }
+		    dfs('')
+		    return [...res]
+		};
+		console.log(permutation(arr))
+		
+		// 递归法
+		var permutation = function (s) {
+		    if (s.length === 1) {
+		        return Array.from(s)
+		    } else {
+		        let resArr = permutation(s.slice(1, s.length))
+		        let newResArr = new Set()
+		        resArr.forEach(str => {
+		            for (let i = 0; i <= str.length; i++) {
+		                let newStr = str.slice(0, i) + s[0] + str.slice(i, str.length)
+		                if (!newResArr.has(newStr)) {
+		                    newResArr.add(newStr)
+		                }
+		            }
+		        })
+		        return [...newResArr]
+		    }
+		};
+	</script>
+</html>

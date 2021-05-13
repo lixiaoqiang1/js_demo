@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<script src="../common/BootStrap3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<table class="table table-bordered">
+	<tr class="btn1" data-id="88">
+		<td>111</td>
+		<td>111</td>
+		<td>111</td>
+		<td>111</td>
+	<tr class="btn1" data-id="99">
+		<td>222</td>
+		<td>222</td>
+		<td>222</td>
+		<td>222</td>
+	</tr>
+</table>
+</body>
+<script>
+	// 获取上个月时间
+	    let nowdays = new Date()
+	    let year = nowdays.getFullYear()
+	    let month = nowdays.getMonth()
+	    if (month === 0) {
+	        month = 12
+	        year = year - 1
+	    }
+	    if (month < 10) {
+	        month = '0' + month
+	    }
+	
+	    let yDate = new Date(year, month, 0)
+	
+	    startDateTime = year + '-' + month + '-01' //上个月第一天
+	    endDateTime = year + '-' + month + '-' + yDate.getDate() //上个月最后一
+		console.log(startDateTime)
+		console.log(endDateTime)
+</script>
+</html>

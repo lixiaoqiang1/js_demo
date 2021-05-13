@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+	<input type="text" name="name" id="name" value="" />
+	<button type="button" class="btn btn-danger" id="btn1">btn</button>
+	<br>返回：<div id="main"></div>
+	</body>
+	<script>
+		$(function(){
+			$('#btn1').on('click',function(){
+				var name = $('#name').val();
+				$.get("php/server.php",{name11:name},function(data){
+					$('#main').text(data);
+				});
+			})
+		})
+		//如果用post请求
+		//直接改$.post。。。。PHP里面对应post就行了
+	</script>
+</html>

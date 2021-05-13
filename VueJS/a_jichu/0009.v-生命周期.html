@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			{{content}}
+			<p><button type="button" @click="add" class="btn btn-danger">btn</button> </p>
+		</div>
+		<button type="button" class="btn btn-danger" onclick="app.$destroy()">销毁</button>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var arr = 'hello nowcoder'
+		console.log(arr.aplit('/\s+/')[1].length)
+		var app = new Vue({
+			el:'#app',
+			data:{
+				content:1,
+			},
+			methods:{
+				add:function(){
+					this.content++
+				},
+			},
+			beforeCreate:function(){
+				console.log('1-beforeCreate 初始化之后');
+			},
+			created:function(){
+				console.log('2-created 创建完成');
+			},
+			beforeMount:function(){
+				console.log('3-beforeMount 挂载之前');
+			},
+			mounted:function(){
+				console.log('4-mounted 被挂在之后');
+			},
+			beforeUpdate:function(){
+				console.log('5-beforeUpdate 数据更新前');
+			},
+			updated:function(){
+				console.log('6-updated 被更新之后');
+			},
+			activated:function(){
+				console.log('7-activated');
+			},
+			deactivated:function(){
+				console.log('8-deactivated');
+			},
+			beforeDestroy:function(){
+				console.log('9-beforeDestroy 销毁之前');
+			},
+			destroyed:function(){
+				console.log('10-destroyed 销毁之后');
+			}
+		})
+	</script>
+</html>

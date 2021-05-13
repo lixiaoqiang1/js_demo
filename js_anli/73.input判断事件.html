@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<title>520生活圈，快乐有大家</title>
+		<link rel="shortcut icon" type="images/x-icon" href="images/yetou.jpg">
+		<style type="text/css">
+			.user_box p,.pass_box p{margin:0px;}
+			.user_01{color: #FF5722;display: none;}
+			.user_02{color: #E91E63;display: none;}
+			.user_03{color: #009688;display: none;}
+		</style>
+	</head>
+
+	<body class="signin">
+		<div class="signinpanel">
+			<div class="row">
+				
+				<div class="col-sm-5">
+					<form id="reg">
+						<h4 class="no-margins">登录：</h4>
+						<p class="m-t-md">登录到520生活圈商家后台</p>
+						<input type="text" name="user" id="user" class="form-control uname" placeholder="用户名" onKeyUp="value=value.replace(/[^\w]/ig,'')" />
+						<label class="user_box" for="">
+							<p class="user_01">必填</p>
+							<p class="user_02">请正确输入账号</p>
+							<p class="user_03">✔</p>
+						</label>
+						<input type="password" name="pass" id="pass" class="form-control pword m-b" placeholder="请输入带有数字或字母的密码" onkeyup="value=value.replace(/[^\w]/ig,'')" />
+						<label class="pass_box" for="">
+							<p class="user_01">必填</p>
+							<p class="user_02">请正确输入密码</p>
+							<p class="user_03">✔</p>
+						</label>
+						<a href="" style="margin-top:10px;display: block;">忘记密码了？</a>
+						
+					</form>
+					<button class="btn btn-primary btn-block">登录</button>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+<script>
+	$(function(){
+		var user_Boolean = false;
+		var password_Boolean = false;
+		$(".uname").bind("input propertychange",function(){
+			if( (/^[a-z0-9]{4,8}$/).test($(".uname").val()) ){
+				$(".user_box .user_03").show();
+				$(".user_box .user_02").hide();
+				$(".user_box .user_01").hide();
+				user_Boolean = true;
+			}else{
+				$(".user_box .user_03").hide();
+				$(".user_box .user_02").show();
+				$(".user_box .user_01").hide();
+				user_Boolean = false;
+			}
+		})
+		$(".pword").bind("input propertychange",function(){
+			if( (/^[a-z0-9]{4,8}$/).test($(".pword").val()) ){
+				$(".pass_box .user_03").show();
+				$(".pass_box .user_02").hide();
+				$(".pass_box .user_01").hide();
+				password_Boolean = true;
+			}else{
+				$(".pass_box .user_03").hide();
+				$(".pass_box .user_02").show();
+				$(".pass_box .user_01").hide();
+				password_Boolean = false;
+			}
+		})
+		$(".btn-block").click(function(){
+			if(user_Boolean && password_Boolean == true){
+				alert("登陆成功")
+			}
+			if( $(".uname").val()=="" ){
+				$(".user_box .user_03").hide();
+				$(".user_box .user_02").hide();
+				$(".user_box .user_01").show();
+				user_Boolean = false;
+			}
+			if( $(".pword").val()=="" ){
+				$(".pass_box .user_03").hide();
+				$(".pass_box .user_02").hide();
+				$(".pass_box .user_01").show();
+				password_Boolean = false;
+			}
+		})
+		document.onkeydown = function(e) { //定义回车事件
+			if(e.keyCode == 13) {
+				// 避免回车键换行
+				e.preventDefault();
+				// 下面发送消息的代码
+				$(".btn-block").click();
+			}
+		}
+	})
+</script>
+</html>

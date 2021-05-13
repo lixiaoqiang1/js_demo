@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+		<style>
+			input {
+				width: 200px;
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- <img src="img/p2.jpg"> -->
+		<!-- <input id="btn" type="button" name="btn" value="btn" /> -->
+	</body>
+	<script>
+		// $(function(){
+		// 	$("img").bind({
+		// 		mouseover:function(){
+		// 			$("#btn").html("鼠标悬停");
+		// 		},
+		// 		mouseout:function(){
+		// 			$("#btn").html("鼠标离开");
+		// 		}
+		// 	});
+		// })
+		console.log('本金一万，每年增加一万，收益每年增长15%的情况下：')
+		var aa = 100000;
+		for( var i=1; i<=30;i++){
+			aa = aa +100000 + aa*0.15;
+			console.log('第"'+i+'"年' + aa)
+		}
+		
+	</script>
+
+
+</html>

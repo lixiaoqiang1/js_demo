@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="chart-name" content="Chart Transition">
+    <title>F2 图表组件库 - AntV</title>
+    <link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/YmDAMEQVbLJpVbKiRQVX.css" />
+    
+</head>
+<body>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+
+<script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.3.8/f2.min.js"></script>
+
+<script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+<!-- 在 PC 上模拟 touch 事件 -->
+<script src="https://gw.alipayobjects.com/os/rmsportal/NjNldKHIVQRozfbAOJUW.js"></script>
+
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/zlDkxMwptuUWBDUQySov.css">
+<style></style>
+<main class="container">
+  <div class="card">
+    <div class="chart-container">
+      <div class="ui-chart ui-chart-pink">
+        <hgroup>
+          <h1 class="ui-chart-title">The Current Chart</h1>
+          <h2 class="ui-chart-date">2014.12.25</h2>
+        </hgroup>
+        <canvas id="line" class="ui-chart-container ui-chart-full"></canvas>
+      </div>
+      <div class="chart-mask chart-overlay">
+        <button id="open-mask" class="ui-fab-center ui-fab ui-fab-orange">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.st0{fill:#FFFFFF;} .st1{fill:none;}</style><path class="st0" d="M4.1 4.5H8v15H4.1zm5.8 4h3.9v11H9.9zm6.2 4H20v7h-3.9z"/><path class="st1" d="M0 0h24v24H0V0z"/></svg>
+        </button>
+        <div class="ui-chart ui-chart-orange">
+          <hgroup>
+            <button id="close-mask" class="ui-fab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><style>.st0{fill:#FFFFFF;} .st1{fill:none;}</style><path class="st0" d="M15.4 7.4L14 6l-6 6 6 6 1.4-1.4-4.6-4.6 4.6-4.6z"/><path class="st1" d="M0 0h24v24H0V0z"/></svg>
+            </button>
+            <h1 class="ui-chart-title">Time Power</h1>
+            <h2 class="ui-chart-date">2014.12.25</h2>
+          </hgroup>
+          <div class="chart-mask-inside">
+            <canvas id="bar" class="ui-chart-container"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-header">
+      <div class="card-subtitle">
+        Total Electricity Consumption at home
+      </div>
+      <h2 class="card-title">
+        <span>180.9</span>
+        <em>kWh</em>
+      </h2>
+      <p class="tip">Refering to
+        <a href="https://codepen.io/blunk/pen/oxbaeX" target="blank">https://codepen.io/blunk/pen/oxbaeX</a>
+      </p>
+    </div>
+  </div>
+</main>
+<script>
+  $('#open-mask').on('click', function() {
+    $('.chart-mask').addClass('visible');
+  });
+
+  $('#close-mask').on('click', function() {
+    $('.chart-mask').removeClass('visible');
+  });
+
+  // draw line chart
+  var lineData = [{
+    time: '2016-08-08 00:00:00',
+    tem: 10
+  }, {
+    time: '2016-08-08 00:10:00',
+    tem: 22
+  }, {
+    time: '2016-08-08 00:30:00',
+    tem: 20
+  }, {
+    time: '2016-08-09 00:35:00',
+    tem: 26
+  }, {
+    time: '2016-08-09 01:00:00',
+    tem: 20
+  }, {
+    time: '2016-08-09 01:20:00',
+    tem: 26
+  }, {
+    time: '2016-08-10 01:40:00',
+    tem: 28
+  }, {
+    time: '2016-08-10 02:00:00',
+    tem: 20
+  }, {
+    time: '2016-08-10 02:20:00',
+    tem: 18
+  }];
+  var lineChart = new F2.Chart({
+    id: 'line',
+    pixelRatio: window.devicePixelRatio,
+    padding: [25, 0, 0]
+  });
+  lineChart.source(lineData, {
+    time: {
+      range: [0, 1],
+      type: 'timeCat'
+    }
+  });
+  lineChart.axis(false);
+  lineChart.tooltip(false);
+  lineChart.line().position('time*tem').shape('smooth').color('#fff').size(2).animate({
+    appear: {
+      duration: 800
+    }
+  });
+  lineChart.area().position('time*tem').shape('smooth').style({
+    fillOpacity: 0.2,
+    fill: '#fff'
+  }).animate({
+    appear: {
+      duration: 800
+    }
+  });
+  lineChart.render();
+
+  // draw bar chart
+  var barData = [{
+    x: '01',
+    y: 38
+  }, {
+    x: '02',
+    y: 52
+  }, {
+    x: '03',
+    y: 61
+  }, {
+    x: '04',
+    y: 145
+  }, {
+    x: '05',
+    y: 48
+  }, {
+    x: '06',
+    y: 38
+  }, {
+    x: '07',
+    y: 38
+  }, {
+    x: '08',
+    y: 38
+  }];
+  var barChart = new F2.Chart({
+    id: 'bar',
+    pixelRatio: window.devicePixelRatio,
+    padding: [25, 'auto', 'auto']
+  });
+  barChart.source(barData);
+  barChart.tooltip(false);
+  barChart.axis('x', {
+    label: {
+      fill: '#fff'
+    },
+    line: null
+  });
+  barChart.axis('y', {
+    label: {
+      fill: '#fff'
+    },
+    grid: {
+      lineDash: null,
+      stroke: 'rgba(255, 255, 255, 0.2)'
+    }
+  });
+  barChart.interval().position('x*y').color('#fff');
+  barChart.render();
+</script>
+
+
+</body>
+</html>

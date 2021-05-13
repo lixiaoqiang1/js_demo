@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../VueJS/js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		// let arr = ['eqeq','ertre','yttu','f','sdfs','dgdf','dfg']
+		// arr.forEach((item,index)=>{
+		// 	console.log(item)
+		// })
+		// let btn = (m1,m2)=>{
+		// 	return m1*m2
+		// }
+		// btn(4,6)
+		// console.log(btn(4,6))
+		let fun = (a,b,c=10) => {
+			return a+b+c
+		}
+		console.log(fun(1,2))
+		function *gen(){
+			yield 'aaa1'
+			yield 'aaa2'
+			yield 'aaa3'
+		}
+		let ints = gen()
+		console.log(ints.next())
+		console.log(ints.next())
+		console.log(ints.next())
+		console.log(ints.next())
+		
+	</script>
+</html>

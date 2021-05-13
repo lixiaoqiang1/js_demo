@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>标题</title>
+	</head>
+	<style type="text/css">
+		.checkbox1{line-height: 20px;width: 50px;}
+		input{border: none;outline: none;margin: 0;padding: 0;vertical-align: middle;float: left; margin-right: 4px;}
+		.checkbox1 input:checked{background: url(images/icon1.png) no-repeat;background-size: 20px; -webkit-appearance: none;}
+		.checkbox1 input{width: 20px;height: 20px;background: url(images/icon2.png) no-repeat;background-size: 20px;-webkit-appearance: none;}
+		
+		.radio1{line-height: 20px;width: 50px;display: block;}
+		input{border: none;outline: none;margin: 0;padding: 0;vertical-align: middle;float: left; margin-right: 4px;}
+		.radio1 input:checked{background: url(images/icon1.png) no-repeat;background-size: 20px; -webkit-appearance: none;}
+		.radio1 input{width: 20px;height: 20px;background: url(images/icon2.png) no-repeat;background-size: 20px;-webkit-appearance: none;}
+	</style>
+	<body>
+		<div>
+			<label class="checkbox1"><input type="checkbox" />demo1选择</label>
+			<!--<input type="hidden" class="ch" id="checkbox1" value="1" />-->
+		</div>
+		<hr />
+		<div id="radioout">
+			<label class="radio1 di1"><input type="radio" name="io1" checked="checked">男</label>
+			<label class="radio1 di2"><input type="radio" name="io1" />女</label>
+			<!--<input type="hidden" class="ca" id="radio1" value="1" />-->
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	<script>
+		//checkbox1
+		$('.checkbox1').change(function(){
+			var aaa1 = $('.ch').val();
+			 if (aaa1 == 1) {
+			 	$('.ch').addClass('ch1').removeClass('ch2');
+			 	$('.ch1').val(2);
+			 }
+			 if (aaa1 == 2) {
+			 	$('.ch').addClass('ch2').removeClass('ch1');
+			 	$('.ch2').val(1);
+			 }
+		})
+		
+		//radio1
+		$('radioout input').click(function(){
+			alert(1);
+			var bbb = $(this).find('input').val();
+			alert(bbb);
+		})
+		
+		//checbox勾选
+//		if ($(this).prop("checked") == true) {
+//			$('.ch2').val(1);
+//		}else{
+//			$('.ch2').val(2);
+//		}
+	</script>
+</html>

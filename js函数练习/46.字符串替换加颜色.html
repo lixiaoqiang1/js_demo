@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>邀请函</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<h3 id="h3"></h3>
+	</body>
+	<script>
+		function wenzi(a,b){
+		  const arr = b.split('')
+		  for(const i of arr){
+			if(a.indexOf(i) !== -1){
+			  a = a.replace(i, `<b style="color:red">${i}</b>`)
+			}
+		  }
+		  return a
+		}
+		let arr ={image_description: "远离黑网贷！用正规贷款，借1万日息仅需2元起，随借随还！",word:'2元'}
+		arr.image_description = wenzi(arr.image_description,arr.word)
+		
+		$('#h3').html(arr.image_description)
+	</script>
+</html>

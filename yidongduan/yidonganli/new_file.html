@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+<script>
+//判断高度是否足够以便定位footer
+function codefans() {
+	var hofoot = $('footer').height();
+	var hohe = $(document.body).height() - $('.index').height();
+	var hocha = hohe - hofoot;
+	console.log(hofoot);
+	console.log(hocha);
+	if(hocha < 0){
+		//console.log('高度足够，定位吧');
+		$('footer').removeClass('posit');
+	}
+}
+setTimeout("codefans()", 200); //2秒，可以改动
+//
+////footer显示隐藏
+var oHeight = $(document).height(); //屏幕当前的高度
+$(window).resize(function(){
+    if($(document).height() < oHeight){
+	    $("footer").css("display","none");
+	}else{
+	    $("footer").css("display","block");
+	} 
+});
+//判断移动端有键盘出现时候footer隐藏。
+</script>
+</html>

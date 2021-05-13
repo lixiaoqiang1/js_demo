@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+
+
+	<body>
+		<button type="button" class="brn btn-danger" onclick="anniu()">按钮啊</button>
+		
+		<input type="text" class="form-control" id="btn1" placeholder="输入..." style="width: 200px;margin-top: 20px;"/>
+		<input type="button" value="显示计时的文本" onClick="timedText()">
+	</body>
+<script>
+	function anniu(){
+		var t = setTimeout("alert('哈哈')",2000);
+	}
+	function timedText(){
+		var x =setTimeout("document.getElementById('btn1').value='2秒'",2000);
+	}
+</script>
+</html>

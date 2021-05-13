@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			section{
+				background: #fff;
+				padding: 0 10px;
+				display: flex;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				background: #17b3e4;
+				color: #fff;
+				font-size: 100px;
+				text-align: center;
+				border: 1px solid #000;
+			}
+			div:nth-child(2){
+				order: 10;
+			}
+			div:nth-child(3){
+				order: 14;
+			}
+			div:nth-child(5){
+				order: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			order				定义元素的排列顺序。数值越小，排列越靠前，默认为0
+		-->
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</section>
+	</body>
+</html>

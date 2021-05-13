@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<body>
+		<input type="file" id="fileInput" />
+		<p class="fileList">未上传文件</p>
+	</body>
+	<script>
+		//把获取file上传的文件名放在fileList里面，目前不兼容ie9
+		$(function() {
+			//图片名称获取
+			var input = document.getElementById("fileInput");
+			//文件域选择文件时, 执行readFile函数
+			input.addEventListener('change', readFile, false);
+
+			function readFile() {
+				var file = this.files[0];
+				$('.fileList').html(file.name);
+			}
+		})
+	</script>
+
+</html>

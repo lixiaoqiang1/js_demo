@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>{{text1}}</p>
+			<div class="form-group">
+				<input type="text" class="form-control" value="请输入..." v-model="text1" />
+			</div>
+			<div class="form-group">
+				<p>去除空格</p>
+				<input type="text" class="form-control" value="请输入..." v-model.trim="text1" />
+			</div>
+			<div class="form-group">
+				<p>里面必须是数字</p>
+				<input type="text" class="form-control" value="里面必须是数字" v-model.number="text1" />
+			</div>
+			<div class="form-group form-inline">
+				<!--v-model.lazy双向数据绑定懒加载-->
+				<textarea class="form-control" rows="5" cols="65" v-model.lazy="text2"></textarea>
+				<p>{{text2}}</p>
+			</div>
+			<div> 
+				<input type="radio" name="" id="one" value="男" v-model="sex" />男
+				<input type="radio" name="" id="one" value="女" v-model="sex" />女
+				<p>{{sex}}</p>
+			</div>
+			<div> 
+				<input type="checkbox" name="" id="" value="选择1" v-model="check1" />选择1
+				<input type="checkbox" name="" id="" value="选择2" v-model="check1" />选择2
+				<p>{{check1}}</p>
+			</div>
+			<div> 
+				<input type="checkbox" name="aa" id="" value="111" v-model="check2" />111
+				<p>{{check2}}</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				text1:'aa',
+				text2:'',
+				sex:'男',
+				check1:[],
+				check2:''
+			},
+			watch:{//watch监听实践变化
+				text2:function(news,items){
+					console.log(news);
+					if(news == 2){
+						console.log("对的")
+					}
+					else{
+						console.log("过")
+					}
+				}
+			}
+		})
+	</script>
+</html>

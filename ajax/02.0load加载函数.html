@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div class="btn-group" id="btn-group" role="group" aria-label="...">
+	    <a href="#" data-link="02.list1.html" type="button" class="btn btn1 btn-danger">个人排行榜</button>
+	    <a href="#" data-link="02.list2.html" type="button" class="btn btn2 btn-default">部门排行榜</a>
+	</div>
+	<div class="elite_box" id="elite_box"></div>
+</body>
+<script>
+	$('#elite_box').load('02.list1.html');
+	$('.btn-group a').each(function() {
+        this.onclick = function () {
+        	$('#elite_box').load($(this).data("link"));
+        };
+    });
+</script>
+</html>

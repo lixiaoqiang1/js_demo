@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		
+		<body>
+			<input>
+			<br>
+			<br>
+			<br>
+			<!-- 案例1 -->
+			<button class="btn" data-clipboard-text="测试1">点击测试1</button><br><br>
+
+			<!-- 案例2 -->
+			<a class="a" data-clipboard-text="测试2">点击测试2</a><br><br>
+			
+			<!-- 案例3 -->
+			<div class="cao">cao</div>
+ 			<button class="btn2" data-clipboard-action="copy" data-clipboard-target=".cao">点击测试3</button><br><br>
+			
+			<!-- 案例4 -->
+			<input id="t" type="text"/ value="t"><br>
+			<textarea id="t2">t2</textarea><br>
+			<button class="btn3" data-clipboard-action="copy" data-clipboard-target="#t2">点击测试4</button><br><br>
+
+
+
+			<script src="../ajax/js/jquery-1.9.1.min.js"></script>
+			<!--<script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>-->
+			<script type="text/javascript" src="js/clipboard.min.js" ></script>
+			<script>
+				$(document).ready(function(){  
+					/*案例1*/
+				    var clipboard = new Clipboard('.btn');
+				    clipboard.on('success', function(e) {
+					   console.log(e);
+				        alert(e.text)
+					    });
+				    clipboard.on('error', function(e) {
+				           console.log(e);
+				           alert("测试1复制失败！请手动复制")
+				 	});
+
+				 	/*案例2*/
+				    var clipboard = new Clipboard('.a');
+				    clipboard.on('success', function(e) {
+					   console.log(e);
+				        alert(e.text)
+					    });
+				    clipboard.on('error', function(e) {
+				           console.log(e);
+				           alert("测试1复制失败！请手动复制")
+				 	});
+
+				 	/*案例3*/
+				    var clipboard = new Clipboard('.btn2');
+				    clipboard.on('success', function(e) {
+					   console.log(e);
+				        alert(e.text)
+					    });
+				    clipboard.on('error', function(e) {
+				           console.log(e);
+				           alert("测试1复制失败！请手动复制")
+				 	});
+
+				 	/*案例4*/
+				    var clipboard = new Clipboard('.btn3');
+				    clipboard.on('success', function(e) {
+					   console.log(e);
+				        alert(e.text)
+					    });
+				    clipboard.on('error', function(e) {
+				           console.log(e);
+				           alert("测试1复制失败！请手动复制")
+				 	});
+				})
+			</script>
+		</body>
+</html>

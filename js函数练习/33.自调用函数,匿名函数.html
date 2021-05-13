@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+
+<body>
+	<div class="box"></div>
+	<button type="button" class="btn btn-danger" onclick="btn2()">btn</button>
+</body>
+
+<script>
+	
+	//匿名函数，自调用函数
+	(function(){
+		console.log('123')
+	})();
+	
+	//函数的封装调用
+	function btn1(){
+		alert('123')
+	}
+	btn1()
+	
+	function btn2(){
+		btn1()
+	}
+	
+	function aaa(){
+		var num = 1;
+		for (var i = 0;i <= 5;i ++) {
+			num += i
+		}
+		return num//return返回参数
+	}
+	
+	console.log(aaa());
+	$('.box').html(aaa());
+	
+</script>
+</html>

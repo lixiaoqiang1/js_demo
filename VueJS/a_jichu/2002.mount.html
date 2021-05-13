@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app"></div>
+		<p><button type="button" class="btn btn-danger" onclick="destroy()">btn1</button> </p>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var jspang = Vue.extend({
+			template:`<p>{{message}}</p>`,
+			data:function(){
+				return{
+					message:'hello'
+				}
+			},
+			mounted:function(){
+				console.log('这是是被创建')
+			},
+			destroyed:function(){
+				console.log('$destroy--销毁之后')
+			}
+		})
+		var vm = new jspang().$mount('#app');
+		
+		//销毁之后
+		function destroy(){
+			vm.$destroy();
+		}
+	</script>
+</html>

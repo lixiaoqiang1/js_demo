@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js" ></script>
+		<body>
+			<textarea id="istext" style="opacity: 0;width: 0;height: 0;position: absolute;margin: 0;padding: 0;">这是复制的内容</textarea>
+			<button onclick="myCopy()">点击复制文本框内的内容</button>
+			<script>
+			    function myCopy(){
+			        var ele = document.getElementById("istext");
+			        ele.select();
+			        document.execCommand("Copy");
+			    }
+			</script>
+		</body>
+
+</html>

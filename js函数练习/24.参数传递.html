@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+		
+	</head>
+
+<body>
+<button type="button" onclick="myfunction('111','222')">点击这里</button>
+<p id="demo"></p>
+</body>
+
+<script>
+function myfunction(name,job){
+	alert(job);
+}
+var day = new Date().getDay();//星期几
+switch(day){ //switch当匹配哪个选项时候，就输出对应的值；
+	case 0:
+	x = "星期日";
+	break;
+	case 1:
+	x = "星期一";
+	break;
+	case 2:
+	x = "星期二";
+	break;
+	case 3:
+	x = "星期三";
+	break;
+}
+document.getElementById('demo').innerHTML=x;
+
+	var car = ["11","22","33","44"];
+	for(var i = 0;i < car.length;i ++){
+		document.write(car[3]);
+	}
+	ca=["BMW","Volvo","Saab","Ford"];
+	for (i = 0,len = ca.length;i <len; i ++) {
+		document.write(ca[0]);
+	}
+var x = "",i = 0;
+while (i<5){
+	x = x +"hello!"	 + i
+	i ++;
+}
+document.getElementById('demo').innerHTML=x;
+
+var de = new Date();
+document.getElementById('demo').innerHTML=de.toUTCString();
+document.write(de.getTime());
+</script>
+</html>

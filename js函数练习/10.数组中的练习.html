@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<style>
+			.c{width: 200px;height: 150px;border:1px #cccccc solid;}
+		</style>
+	</head>
+
+	<body>
+		<div class="aaa">
+			<div class="b">11111</div>
+			<div class="c"></div>
+		</div>
+	</body>
+	<script>
+		//要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组
+		var array =[0,3501,31,1];
+		var newArray = [];
+		for(var i = 0;i < array.length;i++){
+			//找到不为0的项，放入新的数组
+			if(array[i] !== 0){
+				newArray[newArray.length] = array[i];
+			}
+		}
+		console.log(newArray);
+		document.write(newArray);
+	</script>
+
+</html>

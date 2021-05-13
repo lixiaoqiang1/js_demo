@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			{{num}}
+			<!--${num}-->
+			<p><button type="button" class="btn btn-danger" @click="add">add</button> </p>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var extendsOBJ = {
+			updated:function(){
+				console.log('我是扩展的updated');
+			}
+		}
+		var app = new Vue({
+			el:'#app',
+			data:{
+				num:'1',
+			},
+			methods:{
+				//原生的方法
+				add:function(){
+					console.log('我是原生的方法')
+					this.num++;
+				}
+			},	
+			//扩展的方法
+			extends:extendsOBJ,
+//			delimiters:['${','}']
+			
+		})
+	</script>
+</html>

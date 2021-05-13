@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+
+	<style>
+.hum_box {position: fixed;z-index: 2;top: 50%;left: 50%;
+			min-width: 30%;max-width: 640px;border-radius: 4px;
+			height: auto;z-index: 9999999;-webkit-transform: translateX(-50%) translateY(-50%);
+			-moz-transform: translateX(-50%) translateY(-50%);-ms-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);}
+.hum_box p {padding: 15px;border-radius: 4px;text-align: center;color: #ffffff;background: rgba(0,0,0,0.75);}
+	
+	</style>
+
+<body>
+<div id="hum_box" class="hum_box">
+	<p>1111</p>
+</div>	
+</body>
+<script>
+setTimeout(function () {//关键的setTimeout
+    $('#hum_box').hide();
+}, 1000);//等待3秒执行	
+</script>
+</html>

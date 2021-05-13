@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+		<p>如果时间早于 18:00，会获得问候 "Good day"。如果时间晚于18:00，显示“好好工作”</p>
+
+		<button onclick="myFunction()">点击这里</button>
+
+		<p id="demo"></p>
+
+		<script>
+			function myFunction() {
+				var x = "";
+				var time = new Date().getHours();
+				new Date().getHours();
+				if(time < 18) {
+					x = "还在上班";
+				}else if(time > 18){
+					x = "可以下班了";
+				}
+				document.getElementById("demo").innerHTML = x;
+			}
+		</script>
+
+	</body>
+
+</html>

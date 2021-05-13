@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../VueJS/js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		var arr = [1,2,3,4]
+		var sum = 0;
+		for(var i = 0;i<arr.length;i++){
+			// console.log(arr[i])
+			sum+=arr[i]
+		}
+		console.log(sum)
+		
+		//最大值
+		var max = arr[0];
+		for(var i = 0;i<arr.length;i++){
+			if(arr[i] > max){
+				max = arr[i]
+			}
+		}
+		console.log(max)
+		
+		//最小值
+		var min = arr[0];
+		for(var i = 0;i<arr.length;i++){
+			if(arr[i] < min){
+				min = arr[i]
+			}
+		}
+		console.log(min)
+		
+		var each = function(arr,fn){
+			for(var i=0;i<arr.length;i++){
+				fn(arr[i])
+			}
+		}
+		each(arr,function(v){
+			sum += v
+		})
+		console.log(sum)
+		
+	</script>
+
+</html>

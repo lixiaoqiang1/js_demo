@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<button type="button" class="btn btn-danger" onclick="btn_submit1()">提交</button>
+</body>
+<script>
+	function btn_submit1(){
+//		$.ajax({
+//			type:'get',//
+//			url:'https://www.layui.com/demo/table/user/',
+//			dataType:'jsonp',
+////			contentType: 'application/json',
+//			data:'',
+//			async:false,
+//			success:function(msg){
+//				console.log(msg);
+//			}
+			
+//		})
+		/*$.ajax({
+	     url:'https://www.layui.com/demo/table/user/',
+	     dataType:'jsonp',
+	     processData: false, 
+	     type:'get',
+	     success:function(data){
+	       alert(data.name);
+	     },
+	     error:function(XMLHttpRequest, textStatus, errorThrown) {
+	       alert(XMLHttpRequest.status);
+	       alert(XMLHttpRequest.readyState);
+	       alert(textStatus);
+	     }});*/
+	    
+	    $.ajax({
+	    type: 'GET',  //这里用GET
+	    url: 'https://www.layui.com/demo/table/user/?page=1&limit=30',
+	    dataType: 'jsonp',  //类型
+	    //data: json_data,
+	    jsonp: 'jcallback', //jsonp回调参数，必需
+	    async: false,
+	    success: function(d) { //返回的json数据
+			alert(d);
+	    },
+	    timeout: 3000
+	});
+		
+	}
+</script>
+<!--<script>
+	function btn_submit2(){
+		var json_shenfen = {
+			'kid':kid,'zdt_image_best':zdt_image_best,'zdt_image_env',zdt_image_env
+		}
+		$.post(" https://jiekou.zhudai.com/app/api_faceidentify/uploadliveimg.html",
+			function(data){
+			  if(data =='200'){
+			  	alert('返回正常');
+			  }
+			  if(data == '500'){
+			  	alert('返回失败');
+			  }
+			}
+		);
+	}
+</script>-->
+</html>

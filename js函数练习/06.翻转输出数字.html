@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script type="text/javascript" src="js/jquery.js" ></script>
+</head>
+<body>
+
+</body>
+<script>
+	//输入一个整数，翻转输出这个数的每一个数字（输入）-123-（输出）321
+	var number = Number(prompt("请输入一个数字"));
+	//整数
+	//0
+	//NaN
+	if(number) {
+		number = parseInt(number);
+		do{
+			var tmp = number % 10;
+			number = parseInt(number / 10);
+			console.log(tmp);
+		}while(number != 0);
+		
+		//翻转输出每一个数字
+	}else if (number === 0){
+		console.log("0");
+	}else {
+		console.log("输入的不是整数,重新输入");
+	}
+</script>
+</html>

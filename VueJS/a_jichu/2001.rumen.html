@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			{{message}}
+			<p id="aaa"></p>
+			<p><button type="button" class="btn btn-danger" @click="add">add</button></p>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'hello word',
+			},
+			//加载之后就执行了
+			mounted:function(){
+				console.log('加载之后就执行了111');
+				$('#aaa').html('加载之后就执行了222');
+			},
+			methods:{
+				//原生的方法
+				add:function(){
+					console.log('我是原生的方法')
+					this.message++;
+				}
+			}
+		})
+//		app.add();
+	</script>
+</html>

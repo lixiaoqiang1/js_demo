@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../common/js/jquery-1.9.1.min.js" ></script>
+	<script>
+		var a = [1, true, 'abc'];
+		
+		var myhash= {'key1':'key11','key2':'key22' };
+		
+		var objs = [
+			{ id: 1, name: 'n_1' }, 
+			{ id: 2, name: 'n_2'},
+			{ id: 3, name: 'n_3'},
+			{ id: 4, name: 'n_4'},
+		];
+			var lis = '';
+			$.each(objs, function(item, items) {
+			    lis += "<li>"+ items.name +"</li>";
+			});
+			$('#app ul').html(lis);
+		
+	</script>
+</html>

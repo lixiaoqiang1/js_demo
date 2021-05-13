@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>js实现数字从1动态递增到10</title>
+    <script type="text/javascript" src="../ajax/js/jquery-1.9.1.min.js" ></script>
+</head>
+<style type="text/css">
+	.welltext{color: red;}
+	.welltext1{color: blue;}
+</style>
+<body>
+ 	<p class="welltext"><span class="timeSkip" id="timeSkip">10</span>秒内可撤销</p>
+ 
+    <script>
+	function lxfEndtime(){
+		$t=$('#timeSkip').html();
+		if($t!=0){
+			$('#timeSkip').html($t-1);
+			$i=setTimeout("lxfEndtime()",1000);
+			if( $('#timeSkip').html() <= 5 ){
+				$('.welltext').addClass('welltext1')
+			}
+			if( $('#timeSkip').html() == 0 ){
+//				window.open('http://www.jingjingke.com','_self');
+			}
+		}
+	}
+	lxfEndtime();
+       		
+</script>
+</body>
+</html>

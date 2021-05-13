@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			{{num}}
+			<p><button type="button" class="btn btn-danger" @click="add">add</button> </p>
+		
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		//数据更新之后的执行顺序
+		var addSole = {
+			updated:function(){
+				console.log('数据发生变化222')
+			}
+		}
+		Vue.mixin({
+			updated:function(){
+				console.log('数据发生变化333')
+			}
+		})
+		var app = new Vue({
+			el:'#app',
+			data:{
+				num:'1',
+				
+			},
+			methods:{
+				add:function(){
+					this.num++
+				}
+			},
+			updated:function(){
+				console.log('数据发生变化111')
+			},
+			//addSole这个方法数组可以增加
+			mixins:[addSole]			
+		})
+		
+		
+	</script>
+</html>

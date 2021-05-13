@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../VueJS/js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+	<p id="aaa"></p>
+	</body>
+	<script>
+		async function fn(){
+			return new Promise((resolve,reject)=>{
+				resolve('成功的数据')
+				reject('失败的数据')
+			})
+			// return '成功的数据'
+		}
+		const res = fn()
+		res.then(value => {
+			console.log(value)
+		},reason=>{
+			console.log(reason)
+		})
+	</script>
+</html>

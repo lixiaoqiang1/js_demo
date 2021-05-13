@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js" ></script>
+	</head>
+    <style type="text/css">
+    	.site{
+    		width: 300px;background: #eee;
+    	}
+    	.city1{
+    		width: 100%;float: left;
+    	}
+    	.citysite .city1{
+    		width: 49%;float: left;
+    	}
+    </style>
+	<body>
+		
+	</body>
+	<script>
+//		var arr = [
+//		    {"id":"1001","name":"值1","value":"111"},
+//		    {"id":"1001","name":"值1","value":"11111"},
+//		    {"id":"1002","name":"值2","value":"25462"},
+//		    {"id":"1002","name":"值2","value":"23131"},
+//		    {"id":"1002","name":"值2","value":"2315432"},
+//		    {"id":"1003","name":"值3","value":"333333"}
+//		];
+//		 
+//		var map = {},
+//		    dest = [];
+//		for(var i = 0; i < arr.length; i++){
+//		    var ai = arr[i];
+//		    if(!map[ai.id]){
+//		        dest.push({
+//		//             id: ai.id,
+//		//             name: ai.name,
+//		            data: [ai]
+//		        });
+//		        map[ai.id] = ai;
+//		    }else{
+//		        for(var j = 0; j < dest.length; j++){
+//		            var dj = dest[j];
+//		            if(dj.id == ai.id){
+//		                dj.data.push(ai);
+//		                break;
+//		            }
+//		        }
+//		    }
+//		}
+//		 
+//		console.log(dest);
+
+//根据一个字段进行重组
+let arr=[
+      {
+        "color": "red",
+        "iconName": "class1",
+        "name": "菜单一",
+        "styleName": "分类名称1",
+        "url": "index1"
+      },
+	  {
+	    "color": "111",
+	    "iconName": "222",
+	    "name": "333",
+	    "styleName": "分类名称1",
+	    "url": "444"
+	  },
+      {
+        "color": "red",
+        "iconName": "calss2",
+        "name": "菜单二",
+        "styleName": "分类名称2",
+        "url": "index2"
+      },
+      {
+        "color": "blue",
+        "iconName": "calss3",
+        "name": "菜单三",
+        "styleName": "分类名称3",
+        "url": "index3"
+      }
+    ];
+var map = {},dest = [];
+for(var i = 0; i < arr.length; i++){
+    var ai = arr[i];
+    if(!map[ai.styleName]){
+        dest.push({
+            styleName: ai.styleName,
+            data: [ai]
+        });
+        map[ai.styleName] = ai;
+    }else{
+        for(var j = 0; j < dest.length; j++){
+            var dj = dest[j];
+            if(dj.styleName == ai.styleName){
+                dj.data.push(ai);
+                break;
+            }
+        }
+    }
+}
+// console.log("dest:"+JSON.stringify(dest));
+console.log(dest);
+</script>
+	
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">  
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">  
+		<title></title>
+		<style>
+		html{width: 100%;height: 100%;  }
+		body{width: 100%;height: 100%;padding-top: 0.9rem; min-width: 320px;background: white; max-width: 640px;font-size: 16px;margin: auto;font-family: "microsoft yahei",arial;}
+		*{ margin: 0; padding: 0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+		h1,h2,h3,h4,h5,h6,p,dd{margin:0;}
+		ul,li,ol,dl{margin:0;padding:0;list-style:none;}
+		img,input{border:none;vertical-align:middle;}
+		a{text-decoration:none;color:inherit;outline:none;}
+		.clearfix{clear:both}
+		
+		/*选择地区弹层*/
+		.express-area-box { position: absolute; right: -100%; left: 50%; z-index: 120; width: 320px; margin-left: -160px; background-color: #fff; color: #4d525d; }
+		.express-area-box article { height: 100%; overflow-y: scroll; }
+		.express-area-box { position: fixed; left:  inherit; width: 170px;height: 100%;right: -100%;top: 0; margin-left: 0;box-shadow: 0 0 20px rgba(0,0,0,1); }
+		/*遮罩层*/
+		.mask { display: none; position: fixed; top: 0; left: 0; z-index: 100; width: 100%; height: 100%; background-color: rgba(0,0,0,.5); }
+
+		</style>
+	</head>
+	<body>
+		<button id="expressArea" style="padding: 10px 15px;">btn</button>
+		    <!--选择地区弹层-->
+		    <section id="areaLayer" class="express-area-box">
+		        <article id="areaBox">
+		            <ul id="areaList" class="area-list">
+		            	<p>12121212</p>
+			        	<p>12121212</p>
+		            </ul>
+		        </article>
+		    </section>
+		    <!--遮罩层-->
+		    <div id="areaMask" class="mask"></div>
+</body>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+	/*关闭省市区选项*/
+	function clockArea() {
+		$("#areaMask").fadeOut();
+		$("#areaLayer").animate({"right": "-100%"});
+	}
+	
+	$(function() {
+		/*打开省市区选项*/
+		$("#expressArea").click(function() {
+			$("#areaMask").fadeIn();
+			$("#areaLayer").animate({"right": 0});
+		});
+		/*关闭省市区选项*/
+		$("#areaMask").click(function() {
+			clockArea();
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".btn2").mouseover(function(){
+  $("p").slideDown();
+  });
+  $(".btn2").mouseout (function(){
+  $("p").slideUp();
+  });
+});
+</script>
+</head>
+<body>
+
+<h5 class="btn2">显示</h5>
+<p style="display: none;">This is a paragraph.</p>
+</body>
+</html>

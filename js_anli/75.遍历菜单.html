@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<title>520生活圈，快乐有大家</title>
+		<link rel="shortcut icon" type="images/x-icon" href="images/yetou.jpg">
+		<style type="text/css">
+			/*清除开始*/
+			html{width: 100%;height: 100%; font-size: 100px; }
+			body{
+				width: 100%;height: 100%;
+			    min-width: 320px;/*为什么这里不能用rem，因为这是body的宽度，如果用rem那就一直都是1，没有办法缩小*/
+			    max-width: 640px;
+			    font-size: 0.3rem;
+			    margin: auto;
+			    font-family: "microsoft yahei",arial;
+			    color: #333333;
+			}
+			*{ margin: 0; padding: 0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+			h1,h2,h3,h4,h5,h6,p,dd,label{margin:0;font-weight: normal;}
+			ul,ol,dl{margin:0;padding:0;list-style:none;}
+			img,input{border:none;vertical-align:middle;outline: none;}
+			a{text-decoration:none;color:inherit;outline:none;}
+			.clearfix{clear:both}
+			.text-center{text-align: center;}
+			/*清除结束*/
+			
+			.swiper_wrap {
+				position: relative;
+				width: 100%;
+				height: 30px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			ul {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				color: #444;
+				font-size: 14px;
+				margin-top: 1px;
+			}
+			
+			ul li {
+				line-height: 30px;
+				padding-left: 24px;
+			}
+			
+			.lt {
+				position: absolute;
+				left: -1px;
+				top: 7px;
+				font-family: "宋体";
+				font-weight: bold;
+				color: #AAAAAA;
+			}
+			
+			.gt {
+				position: absolute;
+				right: 26px;
+				top: 7px;
+				font-family: "宋体";
+				font-weight: bold;
+				color: #AAAAAA;
+			}
+			
+			.swiper_wrap .font_inner a {
+				color: #444;
+			}
+			
+			.swiper_wrap a:hover {
+				color: #FA9101;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div id="menu"></div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			 var data = [
+				 {name:"菜单一"},
+				 {name:"菜单一A"},
+				 {name:"菜单一B"},
+				 {name:"菜单一C"}
+			 ],
+			 liArray = [];
+			  data.forEach(function(item,index){
+			      liArray.push("<li class='list'>"+item.name+"</li>");
+//			      console.log(index)
+			      console.log(item[0])
+			      
+			  });
+			  $("#menu").html(liArray.join(""));
+			  
+			  
+		</script>
+		
+	</body>
+
+</html>

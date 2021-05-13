@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body" style="max-width: 640px;margin: auto;">
+		<div id="app">
+			<div class="form-group">
+				<label>姓名：</label>
+				<input class="form-control" type="text" placeholder="输入姓名" ref="name" />
+			</div>
+			<div class="form-group">
+				<label>性别：</label>
+				<div>
+					<label><input type="radio" name="sex" value="1" v-model="sex" checked="checked" />男</label>
+					<label><input type="radio" name="sex" value="2" v-model="sex" />女</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>手机号：</label>
+				<input class="form-control" type="text" placeholder="输入手机号" v-model="moble" />
+			</div>
+			<div class="form-group">
+				<label>评价：</label>
+				<div>
+					<button type="button" class="btn btn-danger" value="1" v-on:click="btn11">不满意</button>
+					<button type="button" class="btn btn-danger" value="2" v-on:click="btn11">满意</button>
+					<button type="button" class="btn btn-danger" value="3" v-on:click="btn11">非常满意</button>
+					<p>{{btn_num}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<textarea v-model="text1"></textarea>
+			</div>
+			<div class="form-group">
+				<img v-bind:src="pic1" width="150px">
+			</div>
+			
+			<div class="form-group">
+				<button type="button" class="btn btn-danger" v-on:click="sibmit">提交</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				name:'',
+				sex:'1',
+				moble:'',
+				text1:'',
+				pic1:'../images/pic11.jpg',
+				btn_num:'',
+			},
+			methods:{
+				sibmit:function(){
+					//第一种获取方式
+					var name = this.name = this.name.value = this.$refs.name.value;
+					console.log(name);
+					
+					//获取性别单选值
+					var sex = this.sex;
+					console.log(sex);
+					
+					//第二种获取方式
+					var moble = this.moble;
+					console.log(this.moble);
+					
+					var text1 = this.text1;
+					console.log(this.text1);
+					
+					console.log(this.pic1);
+					
+				},
+				
+				//获取button绑定值
+				btn11:function(event){
+					var num = this.btn_num = event.target.getAttribute("value");
+					console.log(event.target.getAttribute("value"));
+
+				}
+			}
+		})
+		
+	</script>
+</html>

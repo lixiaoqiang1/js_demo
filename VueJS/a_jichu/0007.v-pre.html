@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<div v-pre>{{message}}</div>
+			<div v-cloak>渲染完成之后，才显示</div>
+			<div>{{message}}</div>
+			<div v-once>{{message}}</div>
+			<div><input type="text" v-model="message" /> </div>
+			<div>
+				<input type="button" v-on:click="jia" value="加" />
+				<p>{{aaa}}</p>
+			</div>
+		</div>
+		
+		
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'今天是周一，微凉的空气里透着淡淡的忧伤',
+				aaa:'1'
+			},
+			methods:{
+				jia:function(){
+					this.aaa++
+				}
+			}
+		})
+		
+	</script>
+</html>

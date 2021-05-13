@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #9E9E9E;
+			}
+			
+			#s3{
+				display: flex;
+				background: #fff;
+				margin-top: 100px;
+				width: 1000px;
+			}
+			#s3 div{
+				height: 200px;
+			}
+			#s3 div:nth-child(1){
+				background: #AC5CF5;
+				
+				flex-basis: 400px;
+				width: 300px;
+			}
+			#s3 div:nth-child(2){
+				background: #FFFF00;
+				font-size: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			flex-basis			设置子元素的宽度，与width的作用一样
+								如果元素上同时设置了width和flex-basis,那么flex-basis会覆盖width的值
+								注意：如果宽度不对的话，设置一下扩展比例与收缩比例为初始值
+			总结：
+				1、如果父级的空间足够flex-grow有效，flex-shrink无效
+				2、如果父级的空间不够flex-shrink有效，flex-grow无效
+				3、flex-basis与width是一样的
+		-->
+		
+		<section id="s3">
+			<div><span>我是陈学辉</span></div>
+			<div><span>我是一只小蜜蜂，飞到西飞到东！</span></div>		
+		</section>
+	</body>
+</html>

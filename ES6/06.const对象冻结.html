@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../common/BootStrap3.0.3/js/jquery.min.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		var constantize = (obj) => {
+			Object.freeze(obj);
+			Object.keys(obj).forEach((key,value)) => {
+				if (typeof obj[key] === 'object') {
+					constantize(obj[key]);
+				};
+			};
+		};
+	</script>
+</html>

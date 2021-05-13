@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<style>
+	body{
+		-webkit-touch-callout: none;  
+	    -webkit-user-select: none;  
+	    -khtml-user-select: none;  
+	    -moz-user-select: none;  
+	    -ms-user-select: none;  
+	    user-select: none;  
+	}
+</style>
+<body>
+<!--<p>全部贷款管理</p>
+<input type="text" value="好" />
+<button type="button" class="btn btn-danger">btn</button>-->
+</body>
+
+<script>
+//	(function(){
+//		alert('1')
+//	})();
+
+//	function btn1(){
+//		console.log('111')
+//		var i = 1;
+//		if (i < 5) {
+//			btn1()
+//		}
+//	}
+//	btn1() 
+	
+	var myfun = function(){
+		console.log('hello')
+	}
+	console.log(typeof myfun())
+	
+	function getr(a,b,fn){
+		return fn(a,b);
+	}
+	var re = getr(5,6,function(a,b){
+		return a+b
+	})
+	console.log(re)
+	
+	function f1(a,fn){
+		fn(a)
+	}
+	var n = 5;
+	var myfun = function(a){
+		console.log(a)
+	}
+	f1(n,myfun);
+	
+	function pr(name,age,sex,score,w,h){
+		console.log(name)
+	}
+	
+</script>
+
+</html>

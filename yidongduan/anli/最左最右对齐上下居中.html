@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+ <meta charset="UTF-8">  
+ <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">  
+<link rel="stylesheet" href="css/index.css" />
+<title>标题</title> 
+<style>
+html{width: 100%;height: 100%; font-size: 100px; }
+body{width: 100%;height: 100%;min-width: 320px;max-width: 640px;font-size: 16px;margin: auto;font-family: "microsoft yahei",arial;}
+*{ margin: 0; padding: 0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+h1,h2,h3,h4,h5,h6,p,dd{margin:0;}
+ul,ol,dl{margin:0;padding:0;list-style:none;}
+img,input{border:none;vertical-align:middle;}
+input{-webkit-appearance: none;outline: none;}
+a{text-decoration:none;color:inherit;outline:none;}
+.clearfix{clear:both}
+
+.container2,.container3,.container4,.container5,.container6,.container7,.container8,.container9,.container10,.container11,.container12{background: #666666;margin: 10px 0;}
+
+.container2{display: flex;justify-content: center;flex-direction: row;flex-wrap: wrap;}
+.container2 .test{width: 45%;height: 30px;background: #F35626;margin: 4px;}
+
+.container3{display: flex;flex-direction: row; }
+.container3 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container4{display: flex;flex-direction: column; }
+.container4 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container5{display: flex;flex-direction: row;justify-content:flex-start }
+.container5 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container6{display: flex;flex-direction: row;justify-content: center}
+.container6 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container7{display: flex;flex-direction: row;justify-content: flex-end  }
+.container7 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container8{display: flex;flex-direction: row;justify-content: space-between }
+.container8 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container9{display: flex;flex-direction: row;justify-content:  space-around }
+.container9 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container10{height: 100px; display: flex;flex-direction: row;justify-content:  space-around ;align-items: flex-start;}
+.container10 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container11{height: 100px;margin: 5px 0; display: flex;flex-direction: row;justify-content:  space-around ;align-items:   center;}
+.container11 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+
+.container12{height: 100px;display: flex;flex-direction: row;justify-content:  space-around ;align-items: flex-end;}
+.container12 .test{width: 50px;height: 30px;background: #F35626;border:1px #ccc solid;}
+</style>
+</head>
+<body style="background: white;">
+	<div class="container2">
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container3">
+		<!--<p>flex-direction: row;</p>-->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container4">
+		<!--<p>flex-direction: column;</p>-->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container5">
+		<!--<p>justify-content:flex-start</p>左边-->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container6">
+		<!--<p>justify-content: center</p>中间 -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container7">
+		<!--<p>justify-content: flex-end</p>右边 -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container8">
+		<!--<p>justify-content: space-between</p>错开 -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container9">
+		<!--<p>justify-content: space-around</p>平均错开 -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container10">
+		<!--<p>justify-content: space-around  </p> -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container11">
+		<!--<p>justify-content: space-around  </p> -->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+	<div class="container12">
+		<!--<p>justify-content: space-around  </p>-->
+		<span class="test">你</span>
+		<span class="test">我</span>
+		<span class="test">他</span>
+		<span class="test">他</span>
+	</div>
+
+</body>
+
+<script>
+//界面尺寸修正
+var doc = document,
+    win = window,
+    oBody = doc.documentElement || doc.body,
+    resize = "onorientationchange" in win ? "orientationchange" : "resize";
+rem();
+addEventListener(resize, rem, false);
+function rem() {
+    /*doc.body.clientWidth是获取当前的body的宽度，640是我们的移动端的最大宽度，相除就会得出一个比例，在乘以100px，就会得出我们当前的1rem等于多少px*/
+    oBody.style.fontSize = 100 * (doc.body.clientWidth / 750) + "px";
+    console.log(oBody.style.fontSize);
+}
+</script>
+</html>

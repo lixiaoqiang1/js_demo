@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../common/BootStrap3.0.3/js/jquery.min.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+//	var time = new Date();
+//	function fun(){
+//		console.log(time);
+//		if (false) {
+//			var time = "hello world!"
+//		}
+//	}
+//	fun();
+	
+	var a = "nihao li";
+	for (var i = 0;i<a.length;i++) {
+		console.log(a[i]);
+	}
+
+	//立即执行函数
+//	(function(){}());
+	function fun(){
+		console.log('外面');
+	}
+	(function(){
+		if (false) {
+			function fun(){
+				console.log('里面');
+			};
+		};
+		fun();
+	}())
+	</script>
+</html>

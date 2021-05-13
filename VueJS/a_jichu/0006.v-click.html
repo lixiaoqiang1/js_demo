@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../ajax/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<img v-bind:src="image1" width="200">
+			<a :href="weburl" target="_blank">链接</a>
+		</div>
+		
+		
+	</body>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				image1:'../images/pic11.jpg',
+				weburl:'http://www.yzd.com/default/kefu/images/icon-shuaxin2.png',
+			},
+			methods:{
+			
+			}
+			
+		})
+	</script>
+</html>

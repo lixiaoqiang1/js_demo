@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" id="btnok" value="获取远程数据" />
+	</body>
+	<script>
+		//为window绑定onload事件
+		window.onload() = function() {
+			document.getElementById('btnok').onclick = function() {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState==4) {
+						alert(xhr.responseText);
+					}
+				}
+				xhr.open('get', 'demo01.php');
+				xhr.send(null)
+			}
+		}
+	</script>
+
+</html>

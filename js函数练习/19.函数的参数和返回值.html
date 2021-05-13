@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+		
+	</head>
+
+<body>
+
+</body>
+<script>
+//function getsum(n,m){
+// var sum = 2;
+//	for (var i = n; i <= m; i++) {
+//		sum += i;
+//	}
+//	//返回计算的结果
+//	return sum;
+//}
+//var sum = getsum(1,20);
+//	console.log(sum)
+
+function getArea(r){
+	//过滤掉undefined null NaN "" 0
+	r = r || 0;
+	//todo判断是否是数字；
+	var pi = 3.141592653
+	return pi * r * r;
+	var area = getArea(5);
+	console.log(area);
+
+	//函数三要素
+	//1.功能
+	//2.参数
+	//3.返回值
+}
+
+//求2个数的最大值
+function getMin(n1,n2){
+	if (n1 < n2) {
+		return n1; //return 返回值
+	}else{
+		return n2;
+	}
+	// return n1 > n2 ? n1 : n2;
+}
+console.log(getMin(10,5));
+// console.log(getMax(5,6));
+</script>
+	
+</html>

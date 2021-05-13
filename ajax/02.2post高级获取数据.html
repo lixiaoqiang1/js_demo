@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	</head>
+	<body>
+		<input type="text" id="username" />
+		<button type="button" class="btn btn-danger" id="btnok">点击</button>
+		<div id="box">返回值<span></span> </div>
+	</body>
+	<script>
+		$(function(){
+			//绑定click事件
+			$('#btnok').bind('click',function(){
+				var username = $('#username').val();
+				var data = {
+					'username':username
+				}
+				//发送Ajax请求
+				$.post('php/demo02.php',data,function(msg){
+					$('#box span').html(msg);
+					alert(msg);
+				})
+			});
+		});
+	</script>
+</html>

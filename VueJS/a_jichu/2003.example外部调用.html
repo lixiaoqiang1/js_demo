@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../common/BootStrap3.0.3/css/bootstrap.min.css" />
+	</head>
+	<body class="panel-body">
+		<div id="app">
+			<p>{{num}}</p>
+			<button type="button" class="btn btn-danger" @click="add">add</button>
+		</div><br />
+		<button type="button" class="btn btn-danger" onclick="reduce()">reduce</button>
+		<button type="button" class="btn btn-danger" onclick="reduceones()">reduce</button>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../js/vue.js" ></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				num:'0',
+			},
+			methods:{
+				add:function(){
+					this.num++
+				}
+			}
+		})
+		
+		app.$on("reduce",function(){
+			console.log("执行了")
+			this.num--;
+		})
+		app.$on("reduceones",function(){
+			console.log("执行了")
+			this.num--;
+		})
+		function reduce(){
+			//调用
+			app.$emit('reduce')
+		} 
+		function reduceones(){
+			app.$emit('reduceones')
+		}
+	</script>
+</html>

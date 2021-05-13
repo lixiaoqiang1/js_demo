@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../common/BootStrap3.0.3/css/bootstrap.css" />
+	<script type="text/javascript" src="../common/js/jquery-1.9.1.min.js" ></script>
+	<title></title>
+</head>
+
+<body>
+	<button type="button" class="btn btn-danger" onclick="btn_submit1()">提交</button>
+</body>
+<script>
+	function btn_submit1(){
+		var json_da = {
+			'name':mobile,'password':pass,'verification':verification
+		}
+		$.ajax({
+			type:'post',//
+			url:'https://jiekou.zhudai.com/app/api_faceidentify/get_verification.html',
+			dataType:'json',
+			data:json_da,
+			async:false,
+			success:function(msg){
+				if(msg == '200'){//200请求成功   //404：资源未找到
+					console.log(msg.data);
+					console.log(msg.is_firstlogin);
+					if(msg.is_firstlogin == true){
+					 	console.log('第一次登陆');
+					}
+					if(msg.is_firstlogin == false){
+					 	console.log('不是第一次登陆');
+					}
+				}
+				if(msg == '500'){//500服务器内部错误，如PHP代码写错了
+					alert('执行失败');
+				}
+			}
+			
+		})
+	}
+</script>
+<script>
+	function btn_submit2(){
+		var json_shenfen = {
+			'kid':kid,'zdt_image_best':zdt_image_best,'zdt_image_env',zdt_image_env
+		}
+		$.post(" https://jiekou.zhudai.com/app/api_faceidentify/uploadliveimg.html",
+			function(data){
+			  if(data =='200'){
+			  	alert('返回正常');
+			  }
+			  if(data == '500'){
+			  	alert('返回失败');
+			  }
+			}
+		);
+	}
+</script>
+<script>
+	//each遍历
+	$.ajax({
+		type:'post',//
+		url:'/kefu/kefu_againclients/ajax_getkefuinfo.html',
+		dataType:'json',
+		data:json_data,
+		async:false,
+		success:function(msg){
+			console.log(msg);
+			if(msg.status == '200'){//200请求成功   //404：资源未找到
+				console.log(msg);
+				var _html = '<label><input type="checkbox" value="" /></label>';
+				$.each(msg.data, function(a,b) {
+					_html += '<label><input type="checkbox" value="'+b.id+'" />'+b.name+'</label>';
+				});
+				$('#ajaxkefuinfo').html(_html);
+			}else{
+				alert(msg.msg)
+			}
+		}
+		
+	})
+</script>
+</html>

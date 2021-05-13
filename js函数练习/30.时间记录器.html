@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+	<body>
+		<button type="button" class="btn btn-danger" onclick="timedCount1()">开始</button>
+		<input type="text" id="box" />
+		<button type="button" class="btn btn-danger" onclick="timedCount2()">结束</button>
+	</body>
+<script>
+var c = 0;	
+var t;	
+function timedCount1(){
+	document.getElementById('box').value=c;
+	c = c + 1;
+	t = setTimeout("timedCount1()",1000);
+}
+function timedCount2(){
+	c = 0;
+	setTimeout("document.getElementById('box').value=0",0);
+	clearTimeout(t);
+}
+</script>
+</html>

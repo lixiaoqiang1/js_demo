@@ -1,0 +1,135 @@
+<script>
+  window.onload = function()
+  {
+    initWebSocket();
+    setTimeout(function(){
+      $.ajax({
+        type:'get',
+        url : '/gwcommon/boss_do/warn_loan.html',
+        dataType:'json',
+        data:{},
+        success : function(data){
+
+        }
+      });
+    },2000);
+  }
+  var socket_start = 0;
+  var userId= "121843";
+  var lockReconnect = false;  //避免ws重复连接
+  var ws = null;          // 判断当前浏览器是否支持WebSocket
+  var wsUrl = 'wss://websocket.kuaidai5.com?is_phone=0&id='+userId+ "&city=北京&mobile=13386507961&brand=1"
+  function initWebSocket()
+  {
+    if (socket_start==1){
+      return false;
+    }
+    createWebSocket(wsUrl);   //连接ws
+  }
+  
+  function createWebSocket(url) {
+    socket_start = 1;
+    try{
+      if('WebSocket' in window){
+        ws = new WebSocket(url);
+      }else if('MozWebSocket' in window){  
+        ws = new MozWebSocket(url);
+      }else{
+         alert_info("您的浏览器不支持websocket协议,建议使用新版谷歌、火狐等浏览器，请勿使用IE10以下浏览器，360浏览器请使用极速模式，不要使用兼容模式！"); 
+      }
+      initEventHandle();
+    }catch(e){
+      reconnect(url);
+      console.log(e);
+    }     
+  }
+  
+  function initEventHandle() {
+    ws.onclose = function () {
+      reconnect(wsUrl);
+      console.log("llws连接关闭!"+new Date().toUTCString());
+    };
+    ws.onerror = function () {
+      reconnect(wsUrl);
+      console.log("llws连接错误!");
+    };
+    ws.onopen = function () {
+      socket_start=1
+      heartCheck.reset().start();      //心跳检测重置
+      console.log("llws连接成功!"+new Date().toUTCString());
+    };
+    ws.onmessage = function (event) {    //如果获取到消息，心跳检测重置
+      heartCheck.reset().start();      //拿到任何消息都说明当前连接是正常的
+      console.log("llws收到消息啦:" +event.data);
+      if(event.data.indexOf('hello') == -1) {
+        console.log(event.data);
+        if(event.data.indexOf('target') !== -1) {
+          var data_call = JSON.parse(event.data);
+          var push_type = data_call.content.push_type;
+          if(data_call.type == 10 && push_type != 'warn'){
+            var target = data_call.content.target;
+            var target_arr = target.split('-');
+            var target_id = target_arr[0];
+            var target_name = target_arr[1];
+            var msg = data_call.content.msg;
+            alert(msg+'（ID：'+target_id+'）请及时跟进！');
+            Open(target_name, '/kefu/kefu_clients/edit_client_info.html?id='+target_id+'&whichnum=0&page_start=0&is_myself_kefu=1&is_search_myclients=&search_myself=on&search_again=on&clientFieldValue=&house=&remark=&kefu_reviews=0&kefu_reviews_ids=0&is_again=0&page=1&num=10&is_hzd=0&notupdate_clients=&stime=&etime=&is_noto_ggc=&loan_money_rang=&loan_money=&&is_again=0');
+          }
+          else{
+            var msg = data_call.content.msg;
+            var ids = data_call.content.target;;
+            layer.open({
+              title:'已受理超过1小时未跟进的提醒',
+              type: 1,
+              area: ['620px', '340px'], //宽高
+              content: "<div style='padding: 10px;font-size: 14px'>"+msg+"</div>",
+              btn: ['查看详情','关闭提醒'],
+              yes: function () {
+                layer.closeAll();
+                Open('我的客户', '/daidaiwang/kefu_clients/search_myclients.html?id='+ids);
+              }
+            });
+          }
+        }
+
+      }
+    }    
+  }
+  // 监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+  window.onbeforeunload = function() {
+    ws.close();
+  }  
+  
+  function reconnect(url) {
+    if(lockReconnect) return;
+    lockReconnect = true;
+    setTimeout(function () {     //没连接上会一直重连，设置延迟避免请求过多
+      createWebSocket(url);
+      lockReconnect = false;
+    }, 2000);
+  }
+  
+  //心跳检测
+  var heartCheck = {
+    timeout: 55000,        //55s发一次心跳
+    timeoutObj: null,
+    serverTimeoutObj: null,
+    reset: function(){
+      clearTimeout(this.timeoutObj);
+      clearTimeout(this.serverTimeoutObj);
+      return this;
+    },
+    start: function(){
+      var self = this;
+      this.timeoutObj = setTimeout(function(){
+        //这里发送一个心跳，后端收到后，返回一个心跳消息，
+        //onmessage拿到返回的心跳就说明连接正常
+        ws.send('{"type":2}');
+        console.log("ping!")
+        self.serverTimeoutObj = setTimeout(function(){//如果超过一定时间还没重置，说明后端主动断开了
+          ws.close();     //如果onclose会执行reconnect，我们执行ws.close()就行了.如果直接执行reconnect 会触发onclose导致重连两次
+        }, self.timeout)
+      }, this.timeout)
+    }
+  }
+</script>
