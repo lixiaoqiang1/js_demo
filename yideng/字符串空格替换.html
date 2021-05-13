@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		let arr = 'qrwtewt wetytru utyu yi u c'
+		
+		// var replaceSpace = function(s) {
+		//     return s.replace(/\s/g,"%20");
+		    
+		// };
+		var replaceSpace = function(arr){
+			let res=''
+			for(const i in arr){
+				if(arr[i] === ' '){
+					res += '%20'
+				}else{
+					res += arr[i]
+				}
+			}
+			return res
+		}
+		var replaceSpace = function(s) {
+		    s = s.split('');
+		   for(let i=0;i<s.length;i++){
+		       if(s[i] == ' '){
+		           s[i] ='%20'
+		       }
+		   }
+		   return s.join('')
+		};
+		// 补充第二种方法 可以不要数组 谢谢@想见青山
+		var replaceSpace = function(s) {
+		  return  s.split(' ').join("%20");
+		};
+		console.log(replaceSpace(arr))
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// var replaceSpace = function(arr) {
+		//     let res=''
+		//     for(let i=0;i<arr.length;i++){
+		//         if(arr[i]===' '){
+		//             res+='%20'
+		//         }else{
+		//             res+=arr[i]
+		//         }
+		//     }
+		//     return res
+		// };
+		// console.log(replaceSpace(arr))
+	</script>
+</html>

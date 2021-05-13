@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		let nums = [0,0,1,1,1,2,2,3,3,4]
+		//方法一
+		var removeDuplicates = function(nums){
+			return Array.from(new Set(nums))
+		} 
+		console.log(removeDuplicates(nums))
+	</script>
+</html>
