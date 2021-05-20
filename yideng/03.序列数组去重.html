@@ -14,6 +14,21 @@
 		var removeDuplicates = function(nums){
 			return Array.from(new Set(nums))
 		} 
+		// 方法二
+		// 最简单数组去重法
+		function funs(array){
+		    var temp = []; //一个新的临时数组
+		    for(var i = 0; i < array.length; i++){
+				
+		        if(temp.indexOf(array[i]) == -1){
+		            temp.push(array[i]);
+		        }
+		    }
+		    return temp;
+		}
+		
+		var arr1 = [1,2,2,4,4,4,9];
+		console.log(funs(arr1));
 		console.log(removeDuplicates(nums))
 	</script>
 </html>
