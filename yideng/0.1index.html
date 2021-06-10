@@ -1,38 +1,338 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="keywords" content="html5、css3、jquery">
-		<meta name="description" content="">
-		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-	</head>
-	<body>
-		<script>
-			var arr = [
-				[1, 4, 7, 11, 15],
-				[2, 5, 8, 12, 19],
-				[3, 6, 9, 16, 22],
-				[10, 13, 14, 17, 24],
-				[18, 21, 23, 26, 30]
-			]
 
-			function fun(arr, tar) {
-				if (!arr.length) return false;
-				let x = arr.length - 1,
-					y = 0;
-				while (x >= 0 && y < arr[0].length) {
-					if (arr[x][y] === tar) {
-						return true;
-					} else if (arr[x][y] > tar) {
-						x--;
-					} else {
-						y++;
-					}
-				}
-				return false;
+<head>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-			}
-			console.log(fun(arr, 300))
-		</script>
-	</body>
+    <title><{$title}></title>
+    <link rel="stylesheet" href="/default/d/wap/sem132/css/reste.css" />
+    <link href="/default/d/wap/luodiye2/css/ldy.css" rel="stylesheet" type="text/css" />
+    <{include file="d/common/js_common.html"}>
+    <script type="text/javascript" src="/default/d/wap/sem_common/js/mui.min.js"></script>
+        <!-- 百度推广统计代码 -->
+    <script type="text/javascript">
+        var template = "<{$template}>";
+        //转化代码
+        function conversion(){
+            <{$ocpcConversionCode}>;
+                }
+    </script>
+    <!-- 百度推广统计代码 -->
+    <{$baiducode}>
+    <!-- OCPC基础代码 -->
+    <{$ocpcBaseCode}>
+    <script type="text/javascript" src="/default/js/location.js"></script>
+     <script type="text/javascript" src="/default/js/love_location_array.js"></script>
+    <script type="text/javascript" src="/default/d/wap/luodiye2/js/newsmob.js"></script>
+    <script type="text/javascript" src="/default/js/agereement.js"></script>
+    <script type="text/javascript" src="/default/d/wap/luodiye2/js/base64.js"></script>
+</head>
+<body>
+    <div class="banner" style="position: relative;">
+        <img src="/default/d/wap/sem104/images/banner226.jpg">
+    </div>
+    <div class="first_page home">
+        <div class="step">
+            <img src="/default/d/wap/sem104/images/step_1.png">
+        </div>
+        <div class="form">
+            <form>
+                    <input type="hidden" id="id" name="id">
+                <ul>
+                    <li class="mui-row-r mui-row-r_first_r">
+                        <div class="name_target name">
+                            <div>姓名</div>
+                            <div class="name_input">
+                                <input type="text" name="name" id="name" placeholder="请输入您的名字">
+                            </div>
+                        </div>
+                        <div class="sex_target">
+                            <div class="sir" data-val='1'>
+                                <img src="/default/d/wap/luodiye2/images/1/sel.png" />
+                                <div for="1">先生</div>
+
+                            </div>
+                            <div class="lady" data-val='2'>
+                                <img src="/default/d/wap/luodiye2/images/1/unsel.png" />
+                                <div for="2">女士</div>
+
+                            </div>
+                            <input type="hidden" id="sex" name="sex" value="1" />
+                        </div>
+                    </li>
+
+                    <li class="mui-row-r mui-row-r_first_r">
+                        <div class="name_target phone">
+                            <div class="icon_l">手机</div>
+                            <div>
+                                <input type="tel" name="mobile" id="mobile" placeholder="请输入您的手机号码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="11">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mui-row-r mui-row-r_first_r">
+                        <div class="name_target pay">
+                            <div class="icon_l">金额</div>
+                            <div>
+                                <input type="tel" name="loanmoney" id="loanmoney" placeholder="请输入您的贷款额度" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="4">
+                            </div>
+
+                        </div>
+                        <div class="danwei"><span>万元</span></div>
+                    </li>
+                    <li class="city-list ctshow1 dt_ct">
+                        <p>选择您长期居住或者工作所在地：</p>
+                        <dl>
+                            <dt data-id="北京">北京</dt>
+                            <dt data-id="上海">上海</dt>
+                            <dt data-id="南京">南京</dt>
+                            <dt data-id="杭州">杭州</dt>
+                            <dt data-id="苏州">苏州</dt>
+                        </dl>
+                        <input type="hidden" name="scity" value="" id="scity">
+                        <!-- <p></p> -->
+                    </li>
+                    
+                    <li class="mui-row-r mui-row-r_first_r commit">
+                        <button type="button"  class="ljpd1 go">马上申请</button>
+                        <button type="button" class="mui-btn mui-btn-primary apply ljpd2" style="display:none;">跳转中...</button>
+                        <input type="hidden" name="t" id="t" value="<{$t}>">
+                        <input type="hidden" name="mid" id="mid" value="<{$mid}>">
+                        <input type="hidden" name="u" id="u" value="<{$u}>">
+                    </li>
+                    <li class="mui-row-r mui-row-r_first_r insur">
+                        <div class="insur mui-checkbox mui-left">
+                            <input class="check" type="checkbox" id="agereement_check" <{if $template neq 'sem160'}> checked <{/if}> />
+                            <span class="mui-card-content-inner ageree_span">本人已同意
+                                <a id="boxclick1" style="color: #f55a3b;">《服务协议》</a>
+                                <a id="boxclick2" style="color: #f55a3b;">《隐私政策》</a>
+                                <a id="boxclick3" style="color: #f55a3b;">《承诺书》</a>
+                                <!--服务协议-->
+                                <{if $host_type eq 0}>
+                                <{include file="d/commons/sudaizhongxin_agreement.html"}>
+                                <{elseif $host_type eq 1}>
+                                <{include file="d/commons/bangdai_agreement.html"}>
+                                <{elseif $host_type eq 2}>
+                                <{include file="d/commons/daidaiwang_agreement.html"}>
+                                <{elseif $host_type eq 3}>
+                                <{include file="d/commons/qianzhi_agreement.html"}>
+                                <{/if}>
+                                <!--服务协议 end-->
+                            </p>
+                            </span>
+                            <input type="hidden" id="agereement_wap"  <{if $template neq 'sem160'}> value="1" <{else}>  value="0" <{/if}>>
+                            <{if $template eq 'sem134'}>
+                            <span style="padding-left: 20px;">请确保信息真实性，以免影响实际审核结果</span>
+                            <{/if}>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+            <div class="youshi">
+                <img src="/default/d/wap/sem104/images/ys_sem226.png">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="second_page home hidden">
+        <div class="step">
+            <img src="/default/d/wap/luodiye2/images/1/step.png">
+        </div>
+        <div class="next_page">
+                <ul>
+                    <li class="first">
+                        <label for="birthday">1、填写年龄<span>*</span></label>
+                        <div class="right" style=" width: 71%;float: right;position: relative;"><input type="tel" id="birthday" maxlength="2" placeholder="请输入真实年龄" /> <span class="nl">岁</span></div>
+                    </li>
+                    <li>
+                        <label>2、是否有房<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "购房按揭中">月供房</button>
+                            <button class="btn" type="button" data-type = "全款红本在手">买断房</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="house" class="valhid" id="house" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>3、是否有车<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "按揭车">月供车</button>
+                            <button class="btn" type="button" data-type = "全款车">买断车</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="car" class="valhid" id="car" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>4、是否有公积金<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "有">有</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="gongjijin" class="valhid" id="gongjijin" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>5、是否有商业保险<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "有">有</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="baodan_is" class="valhid" id="baodan_is" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>6、是否有信用卡<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "有">有</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="credit_card" class="valhid" id="credit_card" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>7、是否有社保<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "有">有</button>
+                            <button class="btn" type="button" data-type = "无">无</button>
+                            <input type="hidden" name="work_shebao" class="valhid" id="work_shebao" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>8、是否银行代发工资<span>*</span></label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "银行代发">有</button>
+                            <button class="btn" type="button" data-type = "">无</button>
+                            <input type="hidden" name="work_wage_give_type" class="valhid" id="work_wage_give_type" value="0" />
+                        </div>
+                    </li>
+                    <li>
+                        <label>9、微粒贷额度</label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "7">有</button>
+                            <button class="btn" type="button" data-type = "0">无</button>
+                            <input type="hidden" name="weili" class="valhid" id="weili" value="0" />
+                        </div>
+                    </li>
+                    <li class="lastselsct">
+                        <label>10、芝麻信用分</label>
+                        <div class="right">
+                            <button class="btn" type="button" data-type = "1">350~550</button>
+                            <button class="btn" type="button" data-type = "2">550~650</button><br>
+                            <button class="btn" type="button" data-type = "3">650以上</button>
+                            <button class="btn" type="button" data-type = "4">其他</button>
+                            <input type="hidden" name="zhima" class="valhid" id="zhima" value="0" />
+                        </div>
+                    </li>
+                    <li class="mui-row-r mui-row-r_first_r commit">
+                        <button class="submit btn" type="button" onclick="secondloan()">完成申请</button>
+                    </li>
+                    <!-- <div class="insur mui-checkbox mui-left">
+                        <input  class="check" type="checkbox" id="mflx_check" />
+                        <span class="mui-card-content-inner">免费领取意外险一份，保额最高一百万，仅限本人领取<a id="btn_sec_zx" style="color: #0099FF;text-decoration: underline;">《赠险条款》</a></span>
+                    </div> -->
+                        <!--<input type="hidden" id="gou_l" value="0">-->
+                </ul>
+                <!--<div class="isxieyi">-->
+                    <!--<label class="checkbox1"><input type="checkbox" id="btncheck2" />-->
+                                    <!--免费领取意外险一份，保额最高100万，仅限本人领取</label>-->
+                    <!--<a>《赠险条款》</a>-->
+                    <!--<input type="hidden" name="is_gx" id="is_gx" value="0" />-->
+                <!--</div>-->
+            </div>
+    </div>
+    <!-- 提交成功 -->
+    <div class="success" id="success">
+        <div class="s-in">
+            <h4>提交成功！</h4>
+            <p>若符合条件，贷款经历将会在<br />24小时之内给您回电，请保持电话畅通。</p>
+            <div class="btnture"><span onclick="btnture()">确定</span></div>
+        </div>
+    </div>
+    <!-- 提交成功 -->
+    <footer class="footer">
+            <{if $footer_content eq null}>
+            <p>钱智信息技术（东莞）有限公司</p>
+            <p>Copyright©2019 sudaizhongxin.com All Rights Reserved.京ICP备17116268号-1</p>
+            <p>放款机构：中邮消费金融</p>
+            <p>投资需谨慎</p>
+           <{else}>
+               <{$footer_content}>
+           <{/if}>
+    </footer>
+</body>
+
 </html>
+<script>
+    var temp = "<{$template}>";
+</script>
+<script>
+    // new Mdate("birthday", {
+    //     //"dateShowBtn"为你点击触发Mdate的id，必填项
+    //     acceptId: "birthday",
+    //     //此项为你要显示选择后的日期的input，不填写默认为上一行的"dateShowBtn"
+    //     format: "-"
+    //         //此项为Mdate需要显示的格式，可填写"/"或"-"或".",不填写默认为年月日
+    // })
+
+    //init_location(0, 0, 'profile');
+    $(".sir").click(function() {
+        var sex = $(this).attr('data-val');
+        $(".lady").find('img').attr('src', '/default/d/wap/luodiye2/images/1/unsel.png');
+        $(".sir").find('img').attr('src', '/default/d/wap/luodiye2/images/1/sel.png');
+        $("#sex").val(sex);
+
+    });
+
+    $(".lady").click(function() {
+        var sex = $(this).attr('data-val');
+        $(".sir").find('img').attr('src', '/default/d/wap/luodiye2/images/1/unsel.png');
+        $(".lady").find('img').attr('src', '/default/d/wap/luodiye2/images/1/sel.png');
+        $("#sex").val(sex);
+    });
+
+    $("#btn_sec").click(function() {
+        //待完善
+        $(".secur").hide();
+        $(".first_page").show();
+    });
+
+    $("#header_i").click(function() {
+        //待完善
+        $(".secur").hide();
+        $(".first_page").show();
+    });
+
+
+    $("#btn_sec_zx").click(function() {
+        //待完善
+        $("#zengxian_text").show();
+        $(".second_page").hide();
+    });
+
+    $("#header_i02").click(function() {
+        $("#zengxian_text").hide();
+        $(".second_page").show();
+    });
+
+
+    $(".go").click(function() {
+        firstloan();
+    });
+
+    $(".submit").click(function() {
+        secondloan();
+    });
+
+    $("#agereement_check").click(function() {
+        if ($(this).is(':checked')) {
+            $("#agereement_wap").val(1);
+        } else {
+            $("#agereement_wap").val(0);
+        }
+    });
+
+    $("#mflx_check").click(function() {
+        if ($(this).is(':checked')) {
+            $("#gou_l").val(1);
+        } else {
+            $("#gou_l").val(0);
+        }
+    });
+</script>
