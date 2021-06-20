@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no,email=no,address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
+		<title> </title>
+
+	</head>
+	<body>
+
+	</body>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script>
+		const array = {"code":200,"data":{"lists":[{"id":5,"created_on":1616060814,"username":"向梓曈","brand":1,"auth_id":0,"mobile":"17673110602","mobile_old":"","company":"测试部","department":"","department_big":"","resign_on":0,"role":[{"id":101,"created_on":1614738939,"modified_on":1614738939,"deleted_on":0,"name":"广告运营","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":""},{"id":6,"created_on":1616641820,"username":"袁亚萍","brand":1,"auth_id":0,"mobile":"15270883900","mobile_old":"","company":"推广部","department":"","department_big":"","resign_on":0,"role":[{"id":102,"created_on":1614740075,"modified_on":1614740075,"deleted_on":0,"name":"部门主管","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":"yuanyaping3900@dingtalk.com"},{"id":7,"created_on":1616656873,"username":"廖荣","brand":1,"auth_id":0,"mobile":"18772308381","mobile_old":"","company":"推广部","department":"","department_big":"自营推广部","resign_on":0,"role":[{"id":101,"created_on":1614738939,"modified_on":1614738939,"deleted_on":0,"name":"广告运营","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":"uwk8381@dingtalk.com"},{"id":8,"created_on":1616742872,"username":"李测试","brand":1,"auth_id":0,"mobile":"17620152719","mobile_old":"","company":"测试部","department":"","department_big":"","resign_on":0,"role":[{"id":102,"created_on":1614740075,"modified_on":1614740075,"deleted_on":0,"name":"部门主管","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":""},{"id":9,"created_on":1617012446,"username":"黄冠竣","brand":1,"auth_id":0,"mobile":"18218812344","mobile_old":"","company":"推广部","department":"","department_big":"自营推广部","resign_on":0,"role":[{"id":101,"created_on":1614738939,"modified_on":1614738939,"deleted_on":0,"name":"广告运营","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":"z3c2py8@dingtalk.com"},{"id":10,"created_on":1617012470,"username":"吴志刚","brand":1,"auth_id":0,"mobile":"13814531622","mobile_old":"","company":"推广部","department":"","department_big":"自营推广部","resign_on":0,"role":[{"id":101,"created_on":1614738939,"modified_on":1614738939,"deleted_on":0,"name":"广告运营","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":"wuzhigang0412@dingtalk.com"},{"id":11,"created_on":1617012486,"username":"肖鹏","brand":1,"auth_id":0,"mobile":"18188903210","mobile_old":"","company":"推广部","department":"","department_big":"自营推广部","resign_on":0,"role":[{"id":101,"created_on":1614738939,"modified_on":1614738939,"deleted_on":0,"name":"广告运营","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":"xpeng915@dingtalk.com"},{"id":12,"created_on":1617165354,"username":"周江","brand":1,"auth_id":0,"mobile":"18158180685","mobile_old":"","company":"","department":"","department_big":"","resign_on":0,"role":[{"id":104,"created_on":1617165297,"modified_on":1617165297,"deleted_on":0,"name":"老板","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":""},{"id":13,"created_on":1620891158,"username":"欧阳欣欣","brand":1,"auth_id":0,"mobile":"13612889780","mobile_old":"","company":"推广部","department":"","department_big":"合作渠道部","resign_on":0,"role":[{"id":106,"created_on":1620891092,"modified_on":1620891092,"deleted_on":0,"name":"商务","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":""},{"id":14,"created_on":1620891330,"username":"刘楚圆","brand":1,"auth_id":0,"mobile":"13533463849","mobile_old":"","company":"","department":"","department_big":"","resign_on":0,"role":[{"id":107,"created_on":1620891264,"modified_on":1620891264,"deleted_on":0,"name":"财务","brand":1,"menu":null,"company_config":{"id":0,"brand":0,"role_id":0,"data_level":0,"mobile_view":0}}],"imei":"","imei2":"","wechat_users":null,"user_device_id":0,"dingtalk_email":""}],"total":11},"msg":"ok"}
+		arr = array.data.lists
+		
+		var  map = {},dest = [];
+		for (const i in arr){
+		     var  ai = arr[i];
+		     if (!map[ai.company]){
+		         dest.push({
+		             company: ai.company,
+		             data: [ai]
+		         });
+		         map[ai.company] = ai;
+		     } else {
+		         for (const j in dest){
+		             var  dj = dest[j];
+		             if (dj.company == ai.company){
+		                 dj.data.push(ai)
+		             }
+		         }
+		     }
+		}
+		console.log(dest)
+		
+		
+		
+		
+		
+		
+		// let obj = {};
+		// arr.forEach((item, index) => {
+		// 	let { company } = item;
+		// 	if (!obj[company]) {
+		// 		obj[company] = {
+		// 			company,
+		// 			children: []
+		// 		}
+		// 	}
+		// 	obj[company].children.push(item);
+		// });
+		// let data = Object.values(obj); // 最终输出	
+		// console.log(data)
+		
+		
+		
+		
+		
+		
+		
+		
+		// const data = {}
+		// for (const i of arr) {
+		// 	// console.log(i)
+		// 	if (data[i.company] === undefined) {
+		// 		data[i.company] = [i]
+		// 	} else {
+		// 		data[i.company].push(i)
+		// 	}
+		// }
+		// const yuangong = [] 
+		// let mess
+		// for(let v in  data){
+		// 	mess = data[v]
+		// 	if (v === '') {
+		// 		v = '未分配'
+		// 	}
+		// 	yuangong.push({v,mess})
+		// }
+		// console.log(yuangong)
+	</script>
+</html>

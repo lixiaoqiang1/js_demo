@@ -1,117 +1,118 @@
-<html lang="en"><head>
-	<meta charset="UTF-8">
-	<title>images</title>
-	<!-- html2canvas就是这样一款前端插件,它的原理是将Dom节点在Canvas里边画出来 -->
-	<script src="js/html2canvas.min.js"></script><style type="text/css"></style>
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>js COOKIE 记住帐号或密码</title>
+	<script type="text/javascript">
+		window.onload = function onLoginLoaded() {
+			if (isPostBack == "False") {
+				GetLastUser();
+			}
+		}
 
-	<!-- 将canvas图片保存成图片 -->
-	<script src="js/canvas2image.js"></script>
-	<script src="js/base64.js"></script>
-	<style>
-		#content{
-			border-radius: 3px;
+		function GetLastUser() {
+			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67"; //GUID标识符
+			var usr = GetCookie(id);
+			if (usr != null) {
+				document.getElementById('txtUserName').value = usr;
+			} else {
+				document.getElementById('txtUserName').value = "001";
+			}
+			GetPwdAndChk();
 		}
-		.myword{
-			color: green;
-			border: 1px solid gray;
-			border-radius: 3px;
-			text-align: center;
-			margin-left: 26px;
-			margin-top: 10px;
-			float: left;
-			padding: 5px;
+		//点击登录时触发客户端事件
+		function SetPwdAndChk() {
+			//取用户名
+			var usr = document.getElementById('txtUserName').value;
+			alert(usr);
+			//将最后一个用户信息写入到Cookie
+			SetLastUser(usr);
+			//如果记住密码选项被选中
+			if (document.getElementById('chkRememberPwd').checked == true) {
+				//取密码值
+				var pwd = document.getElementById('txtPassword').value;
+				alert(pwd);
+				var expdate = new Date();
+				expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+				//将用户名和密码写入到Cookie
+				SetCookie(usr, pwd, expdate);
+			} else {
+				//如果没有选中记住密码,则立即过期
+				ResetCookie();
+			}
 		}
-		.ah{
-			display: block;
-			text-align: center;
-			color: #666;
+
+		function SetLastUser(usr) {
+			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";
+			var expdate = new Date();
+			//当前时间加上两周的时间
+			expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
+			SetCookie(id, usr, expdate);
 		}
-		#btnSave,#Download{
-			margin: 10px 0 10px 26px;
+		//用户名失去焦点时调用该方法
+		function GetPwdAndChk() {
+			var usr = document.getElementById('txtUserName').value;
+			var pwd = GetCookie(usr);
+			if (pwd != null) {
+				document.getElementById('chkRememberPwd').checked = true;
+				document.getElementById('txtPassword').value = pwd;
+			} else {
+				document.getElementById('chkRememberPwd').checked = false;
+				document.getElementById('txtPassword').value = "";
+			}
 		}
-		.tx,.bt{
-			border: 1px solid #999;
-			width: 100px;
-			height: 20px;
-			margin-left: 26px;
-			margin-bottom: 10px;
-			border-radius: 3px;
+		//取Cookie的值
+		function GetCookie(name) {
+			var arg = name + "=";
+			var alen = arg.length;
+			var clen = document.cookie.length;
+			var i = 0;
+			while (i < clen) {
+				var j = i + alen;
+				//alert(j);
+				if (document.cookie.substring(i, j) == arg) return getCookieVal(j);
+				i = document.cookie.indexOf(" ", i) + 1;
+				if (i == 0) break;
+			}
+			return null;
 		}
-		.bt{
-			background-color: #333;
-			color: #fff;
-			text-align: center;
+		var isPostBack = "<%= IsPostBack %>";
+
+		function getCookieVal(offset) {
+			var endstr = document.cookie.indexOf(";", offset);
+			if (endstr == -1) endstr = document.cookie.length;
+			return unescape(document.cookie.substring(offset, endstr));
 		}
-	</style>
-</head><style type="text/css" id="21590010685"></style>
+		//写入到Cookie
+		function SetCookie(name, value, expires) {
+			var argv = SetCookie.arguments;
+			//本例中length = 3
+			var argc = SetCookie.arguments.length;
+			var expires = (argc > 2) ? argv[2] : null;
+			var path = (argc > 3) ? argv[3] : null;
+			var domain = (argc > 4) ? argv[4] : null;
+			var secure = (argc > 5) ? argv[5] : false;
+			document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+				((path == null) ? "" : ("; path=" + path)) + ((domain == null) ? "" : ("; domain=" + domain)) + ((secure ==
+					true) ? "; secure" : "");
+		}
+
+		function ResetCookie() {
+			var usr = document.getElementById('txtUserName').value;
+			var expdate = new Date();
+			SetCookie(usr, null, expdate);
+		}
+	</script>
+</head>
 <body>
-	<div id="content" style="width:150px;height:200px;border:1px gray solid">
-	    <span class="myword">Hello world</span>
-	    <br>
-	    <span class="ah"><h2>这里是文本</h2></span>
-	    <input type="text" class="tx">
-		<br>
-	    <input type="button" class="bt" value="提交">
-	</div>
-	<button id="btnSave">转换成图片</button>
-	<div id="images"></div>
-	<button id="Download">Download</button>
-
-<script>
-/*生成canvas图形*/
-
-// 获取按钮id
-var btnSave = document.getElementById("btnSave");
-// 获取内容id
-var content = document.getElementById("content");
-// 进行canvas生成
-btnSave.onclick = function(){
-	html2canvas(content, {
-        onrendered: function(canvas) {
-        	//添加属性
-        	canvas.setAttribute('id','thecanvas');
-			//读取属性值
-			// var value= canvas.getAttribute('id');
-            document.getElementById('images').appendChild(canvas);
-        }
-	});
-}
-</script>
-<script>
-/*
- * 说明
- * html2canvas，目前该插件还在开发中，暂不支持带有图片的div转换。图片会被忽略
- * 对一些的默认样式的支持可能不那么尽如人意，建议自己定义样式,
- * 不支持iframe
- * 不支持跨域图片
- * 不能在浏览器插件中使用
- * 部分浏览器上不支持SVG图片
- * 不支持Flash
- * 不支持古代浏览器和IE，如果你想确认是否支持某个浏览器，可以用它访问 http://deerface.sinaapp.com/ 试试
- */
-var Download = document.getElementById("Download");
-Download.onclick = function(){
-	var oCanvas = document.getElementById("thecanvas");
-
-	/*自动保存为png*/
-	// 获取图片资源
-	var img_data1 = Canvas2Image.saveAsPNG(oCanvas, true).getAttribute('src');
-	saveFile(img_data1, 'abc');
-
-
-	/*下面的为原生的保存，不带格式名*/
-	// 这将会提示用户保存PNG图片
-	// Canvas2Image.saveAsPNG(oCanvas);
-}
-// 保存文件函数
-var saveFile = function(data, filename){
-    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-    save_link.href = data;
-    save_link.download = filename;
-   
-    var event = document.createEvent('MouseEvents');
-    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-    save_link.dispatchEvent(event);
-};
-</script>
-</body></html>
+	<form id="form1">
+		<div> 用户名:
+			<input type="text" ID="txtUserName" onblur="GetPwdAndChk()">
+			<input type="password" ID="txtPassword">
+			密码：
+			<input type="checkbox" ID="chkRememberPwd" />
+			记住密码
+			<input type="button" OnClick="SetPwdAndChk()" value="进入" />
+		</div>
+	</form>
+</body>
+</html>

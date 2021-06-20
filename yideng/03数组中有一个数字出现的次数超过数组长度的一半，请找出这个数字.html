@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="html5、css3、jquery">
+		<meta name="description" content="">
+
+	</head>
+	<body>
+		<script>
+			let arr = [4,5,6,7,9,9,9,9,9];
+			// var majorityElement = function(nums) {
+			// 	let ans = 0,
+			// 		count = 0;
+			// 	for (let i = 0; i < nums.length; i++) {
+			// 		if (!count) {
+			// 			ans = nums[i];
+			// 			count++;
+			// 		} else {
+			// 			count += nums[i] === ans ? 1 : -1;
+			// 		}
+			// 	}
+			// 	return ans;
+			// };
+			// console.log(majorityElement(arr))
+
+			var majorityElement = function(nums) {
+				let num = nums.sort();
+				console.log(num)
+				console.log(Math.floor(num.length / 2))
+				return num[Math.floor(num.length / 2)]
+
+			};
+			console.log(majorityElement(arr))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		//递归思想
+		function nums(n){
+		    if(n===1){return [1,1,1,1,1,1]}
+		    else {
+		        let arr = nums(n-1), re =Array(5*n+1).fill(0);
+		        for(let i=0;i<6;i++){
+		            for(let j=0;j<arr.length;j++){
+		                re[i+j] += arr[j]; 
+		            }
+		        }
+		        return re;
+		    }
+		}
+		
+		var dicesProbability = function(n) {
+		    let sum=0,freq;
+		    freq = nums(n);
+		    // console.log(freq);
+		    freq.forEach((item)=>{
+		        sum += item;
+		    });
+		    // console.log(sum);
+		    return freq.map((item)=>item/sum);
+		};
+		console.log(nums(2))
+	</script>
+</html>
