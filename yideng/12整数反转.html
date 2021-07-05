@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	<script>
+		let arr = 134
+		var reverse = function(x) {
+		    let result = 0;
+		    while(x !== 0) {
+		        result = result * 10 + x % 10;
+		        x = (x / 10) | 0;
+		    }
+		    return (result | 0) === result ? result : 0;
+		};
+		console.log(reverse(arr))
+	</script>
+</html>
